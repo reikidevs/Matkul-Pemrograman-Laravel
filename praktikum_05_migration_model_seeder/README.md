@@ -1,8 +1,8 @@
 # Praktikum 05: Migration, Model, Seeder
 
-**Status:** 🔜 Ready
+**Status:** ✅ Selesai
 
-Tutorial membuat migration, model, dan seeder untuk database di Laravel.
+Tutorial membuat migration, model, dan seeder untuk mengelola database di Laravel.
 
 ## 📖 Dokumentasi Lengkap
 
@@ -10,10 +10,11 @@ Baca dokumentasi lengkap di: **[docs/README.md](docs/README.md)**
 
 ## 🎯 Tujuan Pembelajaran
 
-- Membuat migration untuk database schema
-- Membuat model Eloquent
+- Membuat migration untuk struktur database
+- Membuat model Eloquent ORM
 - Membuat seeder untuk data dummy
-- Menjalankan migration dan seeder
+- Memahami relasi One-to-Many
+- Menggunakan data dari database
 
 ## 🚀 Quick Start
 
@@ -33,19 +34,29 @@ php artisan key:generate
 # DB_USERNAME=root
 # DB_PASSWORD=
 
-# Jalankan migration
-php artisan migrate
-
-# Jalankan seeder
-php artisan db:seed
+# Jalankan migration dan seeder
+php artisan migrate:fresh --seed
 
 # Jalankan server
 php artisan serve
 ```
 
+Buka browser: **http://localhost:8000/mahasiswa**
+
 ## 📚 File Dokumentasi
 
-- [README.md](docs/README.md) - Tutorial lengkap migration, model, dan seeder
+- [README.md](docs/README.md) - Tutorial lengkap step-by-step
+- [CHANGELOG.md](docs/CHANGELOG.md) - Perubahan dari praktikum sebelumnya
+
+## 🗄️ Database
+
+**Tabel yang dibuat:**
+- `program_studis` - Data program studi (6 data)
+- `mahasiswas` - Data mahasiswa (10 data)
+
+**Relasi:**
+- One program studi has many mahasiswa
+- Many mahasiswa belong to one program studi
 
 ---
 
