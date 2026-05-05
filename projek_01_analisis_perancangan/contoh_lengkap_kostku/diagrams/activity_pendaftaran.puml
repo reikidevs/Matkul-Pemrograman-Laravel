@@ -1,0 +1,57 @@
+@startuml KostKu_Activity_Pendaftaran
+
+title Activity Diagram - Proses Pendaftaran Penghuni Baru
+
+start
+
+:Penghuni buka halaman registrasi;
+
+:Input data diri
+(Nama, Email, No HP, NIK);
+
+:Input data kamar yang diminati;
+
+:Submit form registrasi;
+
+if (Data valid?) then (Ya)
+  :Sistem simpan data penghuni;
+  :Sistem buat akun (status: pending);
+  :Kirim notifikasi ke Pemilik Kost;
+  
+  fork
+    :Pemilik Kost terima notifikasi;
+    :Pemilik Kost review data penghuni;
+    
+    if (Data penghuni disetujui?) then (Ya)
+      :Pemilik approve pendaftaran;
+      :Sistem update status akun (active);
+      :Sistem assign kamar ke penghuni;
+      :Sistem generate invoice pertama;
+      
+      fork
+        :Kirim email konfirmasi ke Penghuni;
+      fork again
+        :Kirim kredensial login;
+      end fork
+      
+      :Penghuni terima email;
+      :Penghuni dapat login;
+      
+    else (Tidak)
+      :Pemilik reject pendaftaran;
+      :Sistem update status (rejected);
+      :Kirim email penolakan dengan alasan;
+      :Penghuni terima email penolakan;
+    endif
+    
+  end fork
+  
+else (Tidak)
+  :Tampilkan pesan error;
+  :Kembali ke form registrasi;
+  stop
+endif
+
+stop
+
+@enduml

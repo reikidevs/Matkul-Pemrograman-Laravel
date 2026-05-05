@@ -1,0 +1,87 @@
+@startuml KostKu_Sequence_Login
+
+title Sequence Diagram - Skenario Login Penghuni
+
+actor "Penghuni" as penghuni
+participant "LoginPage" as page
+participant "AuthController" as auth
+participant "User" as user
+participant "Database" as db
+participant "Session" as session
+
+penghuni -> page: Buka halaman login
+activate page
+
+page -> penghuni: Tampilkan form login
+deactivate page
+
+penghuni -> page: Input email & password
+activate page
+
+penghuni -> page: Klik tombol "Login"
+
+page -> auth: submitLogin(email, password)
+activate auth
+
+auth -> auth: Validasi input
+note right: Cek email format\nCek password tidak kosong
+
+alt Input tidak valid
+    auth -> page: return error("Input tidak valid")
+    page -> penghuni: Tampilkan pesan error
+else Input valid
+    auth -> user: findByEmail(email)
+    activate user
+    
+    user -> db: SELECT * FROM users WHERE email = ?
+    activate db
+    
+    db -> user: return userData
+    deactivate db
+    
+    alt User tidak ditemukan
+        user -> auth: return null
+        deactivate user
+        
+        auth -> page: return error("Email tidak terdaftar")
+        page -> penghuni: Tampilkan pesan error
+        
+    else User ditemukan
+        user -> auth: return userData
+        deactivate user
+        
+        auth -> auth: verifyPassword(password, userData.password)
+        
+        alt Password salah
+            auth -> page: return error("Password salah")
+            page -> penghuni: Tampilkan pesan error
+            
+        else Password benar
+            auth -> session: createSession(userData)
+            activate session
+            
+            session -> session: Generate session token
+            session -> db: INSERT INTO sessions
+            activate db
+            db -> session: return success
+            deactivate db
+            
+            session -> auth: return sessionToken
+            deactivate session
+            
+            auth -> page: return success(sessionToken, userData)
+            deactivate auth
+            
+            page -> page: Simpan token di cookie/localStorage
+            page -> penghuni: Redirect ke Dashboard
+            deactivate page
+            
+            penghuni -> page: Akses Dashboard
+            activate page
+            page -> penghuni: Tampilkan Dashboard
+            deactivate page
+        end
+    end
+end
+
+@enduml

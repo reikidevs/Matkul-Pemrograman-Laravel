@@ -1,0 +1,125 @@
+@startuml KostKu_Sequence_Approve
+
+title Sequence Diagram - Skenario Pemilik Approve Pembayaran
+
+actor "Pemilik Kost" as pemilik
+participant "DashboardPage" as dashboard
+participant "PembayaranController" as controller
+participant "Pembayaran" as pembayaran
+participant "Tagihan" as tagihan
+participant "Kwitansi" as kwitansi
+participant "Database" as db
+participant "NotificationService" as notif
+
+pemilik -> dashboard: Login dan buka Dashboard
+activate dashboard
+
+dashboard -> controller: getPembayaranPending()
+activate controller
+
+controller -> pembayaran: findByStatus('pending_confirmation')
+activate pembayaran
+
+pembayaran -> db: SELECT * FROM pembayarans WHERE status = 'pending_confirmation'
+activate db
+
+db -> pembayaran: return listPembayaran
+deactivate db
+
+pembayaran -> controller: return listPembayaran
+deactivate pembayaran
+
+controller -> dashboard: return listPembayaran
+deactivate controller
+
+dashboard -> pemilik: Tampilkan notifikasi badge\n"5 pembayaran menunggu konfirmasi"
+deactivate dashboard
+
+pemilik -> dashboard: Klik menu "Konfirmasi Pembayaran"
+activate dashboard
+
+dashboard -> pemilik: Tampilkan list pembayaran pending
+deactivate dashboard
+
+pemilik -> dashboard: Klik detail pembayaran
+activate dashboard
+
+dashboard -> controller: getPembayaranDetail(pembayaranId)
+activate controller
+
+controller -> pembayaran: findById(pembayaranId)
+activate pembayaran
+
+pembayaran -> db: SELECT * FROM pembayarans WHERE id = ?
+activate db
+db -> pembayaran: return pembayaranData
+deactivate db
+
+pembayaran -> controller: return pembayaranData
+deactivate pembayaran
+
+controller -> dashboard: return pembayaranData
+deactivate controller
+
+dashboard -> pemilik: Tampilkan detail pembayaran\n(Jumlah, Tanggal, Bukti Transfer)
+deactivate dashboard
+
+pemilik -> pemilik: Cek rekening bank\nVerifikasi transfer masuk
+
+pemilik -> dashboard: Klik "Approve Pembayaran"
+activate dashboard
+
+dashboard -> controller: approvePembayaran(pembayaranId)
+activate controller
+
+controller -> pembayaran: updateStatus(pembayaranId, 'approved')
+activate pembayaran
+
+pembayaran -> db: UPDATE pembayarans SET status = 'approved', approved_at = NOW()
+activate db
+db -> pembayaran: return success
+deactivate db
+deactivate pembayaran
+
+controller -> tagihan: updateStatus(tagihanId, 'paid')
+activate tagihan
+
+tagihan -> db: UPDATE tagihans SET status = 'paid', paid_at = NOW()
+activate db
+db -> tagihan: return success
+deactivate db
+deactivate tagihan
+
+controller -> kwitansi: generate(pembayaranId)
+activate kwitansi
+
+kwitansi -> kwitansi: Create PDF kwitansi
+
+kwitansi -> db: INSERT INTO kwitansis (pembayaran_id, file_path)
+activate db
+db -> kwitansi: return kwitansiId
+deactivate db
+
+kwitansi -> controller: return kwitansiData
+deactivate kwitansi
+
+controller -> notif: sendToPenghuni(pembayaranData, kwitansiData)
+activate notif
+
+notif -> db: INSERT INTO notifications
+activate db
+db -> notif: return success
+deactivate db
+
+notif -> notif: Send email dengan attachment kwitansi
+
+notif -> controller: return success
+deactivate notif
+
+controller -> dashboard: return success("Pembayaran berhasil diapprove")
+deactivate controller
+
+dashboard -> pemilik: Tampilkan pesan sukses\nUpdate list pembayaran
+deactivate dashboard
+
+@enduml

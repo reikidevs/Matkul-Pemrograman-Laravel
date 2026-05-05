@@ -1,0 +1,113 @@
+@startuml KostKu_Activity_Komplain
+
+title Activity Diagram - Proses Pengajuan dan Penanganan Komplain
+
+|Penghuni|
+start
+
+:Login ke sistem;
+
+:Buka menu Komplain;
+
+:Klik "Ajukan Komplain Baru";
+
+:Pilih kategori komplain
+(Fasilitas / Kebersihan / Keamanan / Lainnya);
+
+:Input judul komplain;
+
+:Deskripsi detail masalah;
+
+:Upload foto (opsional);
+
+:Submit komplain;
+
+|Sistem|
+:Simpan data komplain
+(status: open);
+
+:Generate nomor tiket;
+
+fork
+  :Kirim notifikasi ke Pemilik Kost;
+fork again
+  :Kirim email konfirmasi ke Penghuni;
+end fork
+
+|Pemilik Kost|
+:Terima notifikasi komplain baru;
+
+:Buka menu Kelola Komplain;
+
+:Lihat detail komplain;
+
+:Analisis masalah;
+
+if (Perlu tindakan segera?) then (Ya)
+  :Ubah prioritas menjadi "Urgent";
+  
+  |Sistem|
+  :Update prioritas komplain;
+  :Kirim notifikasi urgent;
+  
+  |Pemilik Kost|
+endif
+
+:Assign komplain ke teknisi/staff
+(jika perlu);
+
+:Update status komplain (in progress);
+
+|Sistem|
+:Kirim notifikasi update ke Penghuni;
+
+|Penghuni|
+:Terima notifikasi
+"Komplain sedang ditangani";
+
+|Pemilik Kost|
+:Lakukan perbaikan/penanganan;
+
+:Dokumentasi hasil perbaikan;
+
+:Upload foto hasil perbaikan;
+
+:Update status komplain (resolved);
+
+:Input catatan penyelesaian;
+
+|Sistem|
+:Kirim notifikasi ke Penghuni;
+
+|Penghuni|
+:Terima notifikasi
+"Komplain telah diselesaikan";
+
+:Lihat detail penyelesaian;
+
+:Verifikasi hasil perbaikan;
+
+if (Puas dengan penanganan?) then (Ya)
+  :Beri rating & feedback;
+  :Close komplain;
+  
+  |Sistem|
+  :Update status (closed);
+  :Simpan rating;
+  
+else (Tidak)
+  :Buka kembali komplain;
+  :Tambah komentar;
+  
+  |Sistem|
+  :Update status (reopened);
+  :Kirim notifikasi ke Pemilik;
+  
+  |Pemilik Kost|
+  :Terima notifikasi komplain dibuka kembali;
+  :Tindak lanjut ulang;
+endif
+
+stop
+
+@enduml

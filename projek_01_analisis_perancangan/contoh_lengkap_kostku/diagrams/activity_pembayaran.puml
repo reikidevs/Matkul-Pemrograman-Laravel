@@ -1,0 +1,84 @@
+@startuml KostKu_Activity_Pembayaran
+
+title Activity Diagram - Proses Pembayaran Sewa Kost
+
+|Penghuni|
+start
+
+:Login ke sistem;
+
+:Buka menu Pembayaran;
+
+:Lihat tagihan aktif;
+
+if (Ada tagihan?) then (Ya)
+  :Pilih tagihan yang akan dibayar;
+  :Pilih metode pembayaran
+  (Transfer Bank / E-Wallet);
+  
+  :Lakukan pembayaran;
+  
+  :Upload bukti pembayaran;
+  
+  :Submit pembayaran;
+  
+  |Sistem|
+  :Simpan data pembayaran
+  (status: pending);
+  
+  :Kirim notifikasi ke Pemilik Kost;
+  
+  |Pemilik Kost|
+  :Terima notifikasi pembayaran baru;
+  
+  :Buka menu Konfirmasi Pembayaran;
+  
+  :Lihat detail pembayaran
+  dan bukti transfer;
+  
+  :Cek rekening bank;
+  
+  if (Pembayaran valid?) then (Ya)
+    :Approve pembayaran;
+    
+    |Sistem|
+    :Update status pembayaran (paid);
+    :Update status tagihan (lunas);
+    :Generate receipt/kwitansi;
+    :Update tanggal jatuh tempo berikutnya;
+    
+    fork
+      :Kirim notifikasi ke Penghuni;
+      :Kirim kwitansi digital;
+    fork again
+      :Update dashboard Pemilik;
+      :Catat ke laporan keuangan;
+    end fork
+    
+    |Penghuni|
+    :Terima notifikasi pembayaran berhasil;
+    :Download kwitansi;
+    
+  else (Tidak)
+    |Pemilik Kost|
+    :Reject pembayaran;
+    :Input alasan penolakan;
+    
+    |Sistem|
+    :Update status (rejected);
+    :Kirim notifikasi penolakan;
+    
+    |Penghuni|
+    :Terima notifikasi penolakan;
+    :Lihat alasan penolakan;
+    :Upload ulang bukti pembayaran;
+  endif
+  
+else (Tidak)
+  |Penghuni|
+  :Tampilkan "Tidak ada tagihan aktif";
+endif
+
+stop
+
+@enduml

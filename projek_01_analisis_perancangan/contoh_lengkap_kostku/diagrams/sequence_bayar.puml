@@ -1,0 +1,106 @@
+@startuml KostKu_Sequence_Bayar
+
+title Sequence Diagram - Skenario Penghuni Bayar Sewa
+
+actor "Penghuni" as penghuni
+participant "PembayaranPage" as page
+participant "PembayaranController" as controller
+participant "Tagihan" as tagihan
+participant "Pembayaran" as pembayaran
+participant "Database" as db
+participant "NotificationService" as notif
+
+penghuni -> page: Buka menu Pembayaran
+activate page
+
+page -> controller: getTagihanAktif(penghuniId)
+activate controller
+
+controller -> tagihan: findByPenghuni(penghuniId, status='unpaid')
+activate tagihan
+
+tagihan -> db: SELECT * FROM tagihans WHERE penghuni_id = ? AND status = 'unpaid'
+activate db
+
+db -> tagihan: return tagihanData
+deactivate db
+
+tagihan -> controller: return listTagihan
+deactivate tagihan
+
+controller -> page: return listTagihan
+deactivate controller
+
+page -> penghuni: Tampilkan daftar tagihan
+deactivate page
+
+penghuni -> page: Pilih tagihan
+activate page
+
+page -> penghuni: Tampilkan detail tagihan
+deactivate page
+
+penghuni -> page: Pilih metode pembayaran (Transfer Bank)
+activate page
+
+page -> penghuni: Tampilkan info rekening
+deactivate page
+
+penghuni -> penghuni: Lakukan transfer via mobile banking
+
+penghuni -> page: Upload bukti transfer
+activate page
+
+penghuni -> page: Klik "Submit Pembayaran"
+
+page -> controller: submitPembayaran(tagihanId, buktiTransfer)
+activate controller
+
+controller -> controller: Validasi file upload
+
+alt File tidak valid
+    controller -> page: return error("File tidak valid")
+    page -> penghuni: Tampilkan pesan error
+else File valid
+    controller -> pembayaran: create(tagihanId, buktiTransfer)
+    activate pembayaran
+    
+    pembayaran -> db: INSERT INTO pembayarans (tagihan_id, bukti_transfer, status, created_at)
+    activate db
+    
+    db -> pembayaran: return pembayaranId
+    deactivate db
+    
+    pembayaran -> controller: return pembayaranData
+    deactivate pembayaran
+    
+    controller -> tagihan: updateStatus(tagihanId, 'pending_confirmation')
+    activate tagihan
+    
+    tagihan -> db: UPDATE tagihans SET status = 'pending_confirmation'
+    activate db
+    db -> tagihan: return success
+    deactivate db
+    deactivate tagihan
+    
+    controller -> notif: sendToPemilik(pembayaranData)
+    activate notif
+    
+    notif -> notif: Compose notification message
+    notif -> db: INSERT INTO notifications
+    activate db
+    db -> notif: return success
+    deactivate db
+    
+    notif -> notif: Send email to Pemilik
+    notif -> controller: return success
+    deactivate notif
+    
+    controller -> page: return success("Pembayaran berhasil disubmit")
+    deactivate controller
+    
+    page -> penghuni: Tampilkan pesan sukses\n"Pembayaran Anda sedang diverifikasi"
+    deactivate page
+end
+
+@enduml

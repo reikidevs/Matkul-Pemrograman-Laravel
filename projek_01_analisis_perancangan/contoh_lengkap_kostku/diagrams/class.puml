@@ -1,0 +1,197 @@
+@startuml KostKu_Class
+
+title Class Diagram - Sistem Manajemen Kost "KostKu"
+
+' ============ CLASS DEFINITIONS ============
+
+class User {
+  - id: int
+  - email: string
+  - password: string
+  - role: enum
+  - created_at: datetime
+  - updated_at: datetime
+  --
+  + login(): boolean
+  + logout(): void
+  + changePassword(newPassword: string): boolean
+  + resetPassword(email: string): boolean
+}
+
+class Penghuni {
+  - id: int
+  - user_id: int
+  - nama: string
+  - nik: string
+  - no_hp: string
+  - pekerjaan: string
+  - alamat_asal: text
+  - kontak_darurat: string
+  - foto_ktp: string
+  - status: enum
+  --
+  + register(): boolean
+  + updateProfile(): boolean
+  + lihatTagihan(): array
+  + bayarSewa(tagihanId: int): boolean
+  + ajukanKomplain(data: array): boolean
+  + lihatRiwayatPembayaran(): array
+}
+
+class PemilikKost {
+  - id: int
+  - user_id: int
+  - nama: string
+  - no_hp: string
+  - alamat: text
+  --
+  + kelolaKamar(): void
+  + kelolaPenghuni(): void
+  + konfirmasiPembayaran(pembayaranId: int): boolean
+  + lihatLaporan(periode: string): array
+  + kelolaKomplain(komplainId: int): boolean
+  + kirimNotifikasi(penghuniId: int, message: string): boolean
+}
+
+class Kamar {
+  - id: int
+  - nomor_kamar: string
+  - tipe: enum
+  - luas: decimal
+  - harga_sewa: decimal
+  - fasilitas: text
+  - lantai: int
+  - status: enum
+  - foto: string
+  --
+  + cekKetersediaan(): boolean
+  + updateStatus(status: string): void
+  + getFasilitas(): array
+  + getHargaSewa(): decimal
+}
+
+class Penghunian {
+  - id: int
+  - penghuni_id: int
+  - kamar_id: int
+  - tanggal_masuk: date
+  - tanggal_keluar: date
+  - durasi_kontrak: int
+  - status: enum
+  --
+  + perpanjangKontrak(bulan: int): boolean
+  + akhiriKontrak(): void
+  + hitungDurasi(): int
+  + cekStatusAktif(): boolean
+}
+
+class Tagihan {
+  - id: int
+  - penghunian_id: int
+  - periode: string
+  - jumlah: decimal
+  - tanggal_jatuh_tempo: date
+  - denda: decimal
+  - status: enum
+  - created_at: datetime
+  --
+  + generate(penghunianId: int): boolean
+  + hitungDenda(): decimal
+  + updateStatus(status: string): void
+  + getTotal(): decimal
+}
+
+class Pembayaran {
+  - id: int
+  - tagihan_id: int
+  - tanggal_bayar: datetime
+  - jumlah_bayar: decimal
+  - metode_pembayaran: enum
+  - bukti_transfer: string
+  - status: enum
+  - approved_by: int
+  - approved_at: datetime
+  --
+  + submit(data: array): boolean
+  + approve(): boolean
+  + reject(alasan: string): boolean
+  + generateKwitansi(): string
+}
+
+class Komplain {
+  - id: int
+  - penghuni_id: int
+  - kategori: enum
+  - judul: string
+  - deskripsi: text
+  - foto: string
+  - prioritas: enum
+  - status: enum
+  - assigned_to: int
+  - created_at: datetime
+  - resolved_at: datetime
+  --
+  + submit(): boolean
+  + updateStatus(status: string): void
+  + assign(staffId: int): void
+  + resolve(catatan: string): boolean
+  + reopen(): boolean
+  + addRating(rating: int): void
+}
+
+class Notifikasi {
+  - id: int
+  - user_id: int
+  - judul: string
+  - pesan: text
+  - tipe: enum
+  - is_read: boolean
+  - created_at: datetime
+  --
+  + send(): boolean
+  + markAsRead(): void
+  + delete(): void
+}
+
+' ============ RELATIONSHIPS ============
+
+' Inheritance
+User <|-- Penghuni
+User <|-- PemilikKost
+
+' One to Many
+Penghuni "1" -- "0..*" Penghunian : memiliki >
+Kamar "1" -- "0..*" Penghunian : ditempati <
+Penghunian "1" -- "0..*" Tagihan : menghasilkan >
+Tagihan "1" -- "0..1" Pembayaran : dibayar melalui >
+Penghuni "1" -- "0..*" Komplain : mengajukan >
+User "1" -- "0..*" Notifikasi : menerima >
+
+' Many to One
+Pembayaran "0..*" -- "1" PemilikKost : diapprove oleh <
+Komplain "0..*" -- "0..1" PemilikKost : ditangani oleh <
+
+' Notes
+note right of User
+  Base class untuk semua user
+  Role: penghuni, pemilik, admin
+end note
+
+note right of Penghunian
+  Merepresentasikan hubungan
+  antara Penghuni dan Kamar
+  dalam periode tertentu
+end note
+
+note bottom of Tagihan
+  Tagihan dibuat otomatis
+  setiap bulan berdasarkan
+  data Penghunian
+end note
+
+note bottom of Pembayaran
+  Status: pending, approved, rejected
+  Metode: transfer, cash, e-wallet
+end note
+
+@enduml

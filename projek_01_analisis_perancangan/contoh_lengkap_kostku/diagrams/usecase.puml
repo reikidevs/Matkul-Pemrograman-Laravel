@@ -1,0 +1,74 @@
+@startuml KostKu_UseCase
+
+title Use Case Diagram - Sistem Manajemen Kost "KostKu"
+
+left to right direction
+
+' Actors
+actor "Penghuni" as penghuni
+actor "Pemilik Kost" as pemilik
+actor "Admin" as admin
+
+' System boundary
+rectangle "Sistem KostKu" {
+  
+  ' Use Cases untuk Penghuni
+  usecase "UC-01\nRegistrasi" as UC01
+  usecase "UC-02\nLogin" as UC02
+  usecase "UC-03\nLihat Info Kamar" as UC03
+  usecase "UC-04\nBayar Sewa" as UC04
+  usecase "UC-05\nLihat Riwayat Pembayaran" as UC05
+  usecase "UC-06\nAjukan Komplain" as UC06
+  usecase "UC-07\nLihat Status Komplain" as UC07
+  usecase "UC-08\nUpdate Profile" as UC08
+  
+  ' Use Cases untuk Pemilik Kost
+  usecase "UC-09\nKelola Kamar" as UC09
+  usecase "UC-10\nKelola Penghuni" as UC10
+  usecase "UC-11\nKonfirmasi Pembayaran" as UC11
+  usecase "UC-12\nLihat Laporan Keuangan" as UC12
+  usecase "UC-13\nKelola Komplain" as UC13
+  usecase "UC-14\nLihat Dashboard" as UC14
+  usecase "UC-15\nKirim Notifikasi" as UC15
+  
+  ' Use Cases untuk Admin
+  usecase "UC-16\nKelola User" as UC16
+  usecase "UC-17\nKonfigurasi Sistem" as UC17
+  usecase "UC-18\nBackup Data" as UC18
+}
+
+' Relationships - Penghuni
+penghuni --> UC01
+penghuni --> UC02
+penghuni --> UC03
+penghuni --> UC04
+penghuni --> UC05
+penghuni --> UC06
+penghuni --> UC07
+penghuni --> UC08
+
+' Relationships - Pemilik Kost
+pemilik --> UC02
+pemilik --> UC09
+pemilik --> UC10
+pemilik --> UC11
+pemilik --> UC12
+pemilik --> UC13
+pemilik --> UC14
+pemilik --> UC15
+
+' Relationships - Admin
+admin --> UC02
+admin --> UC16
+admin --> UC17
+admin --> UC18
+
+' Include relationships
+UC04 ..> UC02 : <<include>>
+UC06 ..> UC02 : <<include>>
+UC11 ..> UC14 : <<include>>
+
+' Extend relationships
+UC15 ..> UC11 : <<extend>>
+
+@enduml
