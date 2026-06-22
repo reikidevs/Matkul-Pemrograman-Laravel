@@ -1,0 +1,33 @@
+# Folder untuk menyimpan screenshot wireframe dalam format PNG
+
+## Cara Generate Screenshot:
+
+### Dari HTML Wireframe:
+1. Buka wireframe HTML di browser
+2. Gunakan browser screenshot tool atau extension
+3. Simpan dengan nama yang sesuai (contoh: login.png, dashboard-penghuni.png)
+
+### Dari PlantUML:
+```bash
+# Install PlantUML
+npm install -g node-plantuml
+
+# Generate PNG dari .puml file
+plantuml wireframes/plantuml/login.puml -o ../images/
+
+# Atau gunakan online editor
+# https://www.plantuml.com/plantuml/uml/
+```
+
+## Naming Convention:
+- login.png
+- dashboard-penghuni.png
+- pembayaran.png
+- komplain.png
+- dashboard-pemilik.png
+- konfirmasi-pembayaran.png
+
+## Resolusi Recommended:
+- Desktop: 1920x1080
+- Tablet: 1024x768
+- Mobile: 375x812

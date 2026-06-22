@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Dashboard Pemilik | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Dashboard Pemilik Kost</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">← Kembali ke Index</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">KostKu</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard-pemilik.html" class="active">Dashboard</a></li>
+                    <li><a href="#">Kamar</a></li>
+                    <li><a href="#">Penghuni</a></li>
+                    <li><a href="konfirmasi-pembayaran.html">Pembayaran</a></li>
+                    <li><a href="#">Komplain</a></li>
+                    <li><a href="#">Laporan</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">
+                <span style="background: #c00; color: white; padding: 2px 8px; border-radius: 10px; font-size: 12px; margin-right: 10px;">5</span>
+                [User] Budi Santoso &#9662;
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard-pemilik.html" class="active">[Chart] Dashboard</a></li>
+                    <li><a href="#">[Room] Kelola Kamar</a></li>
+                    <li><a href="#">[Users] Kelola Penghuni</a></li>
+                    <li><a href="konfirmasi-pembayaran.html">[Payment] Pembayaran <span style="background: #c00; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; margin-left: 5px;">5</span></a></li>
+                    <li><a href="#">[Ticket] Komplain <span style="background: #999; color: white; padding: 2px 6px; border-radius: 8px; font-size: 10px; margin-left: 5px;">2</span></a></li>
+                    <li><a href="#">[Report] Laporan</a></li>
+                    <li><a href="#">[Settings] Settings</a></li>
+                    <li style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd;">
+                        <a href="login.html">[Exit] Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1 class="page-title">Dashboard Pemilik</h1>
+                    <div class="breadcrumb">Overview Sistem KostKu</div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="card-header">Statistik Utama</div>
+                <div class="grid grid-4 mb-30">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Kamar</div>
+                        <div class="stat-value">20</div>
+                        <div class="stat-detail">10 Lt.1 | 10 Lt.2</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Kamar Terisi</div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-detail">Okupansi: 90%</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Pendapatan Bulan Ini</div>
+                        <div class="stat-value" style="font-size: 20px;">Rp 27M</div>
+                        <div class="stat-detail">↑ 5% vs bulan lalu</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Komplain Aktif</div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-detail">2 Urgent</div>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="grid grid-2 mb-30">
+                    <!-- Recent Activities -->
+                    <div class="card">
+                        <div class="card-header">Aktivitas Terbaru</div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li class="list-item">
+                                    <div>
+                                        <strong>[Payment] Pembayaran Baru</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            Ahmad Rizki - Kamar 201<br>
+                                            Rp 1.500.000
+                                        </div>
+                                        <div style="font-size: 11px; color: #999; margin-top: 5px;">
+                                            5 menit yang lalu
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div>
+                                        <strong>[Alert] Komplain Urgent</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            Siti Nurhaliza - Kamar 105<br>
+                                            AC Tidak Dingin
+                                        </div>
+                                        <div style="font-size: 11px; color: #999; margin-top: 5px;">
+                                            10 menit yang lalu
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div>
+                                        <strong>[User] Penghuni Baru</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            Dedi Kurniawan - Kamar 203<br>
+                                            Mulai: 1 Januari 2024
+                                        </div>
+                                        <div style="font-size: 11px; color: #999; margin-top: 5px;">
+                                            15 menit yang lalu
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Pembayaran Pending -->
+                    <div class="card">
+                        <div class="card-header flex-between">
+                            <span>Pembayaran Pending</span>
+                            <a href="konfirmasi-pembayaran.html" class="btn">Lihat Semua</a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li class="list-item">
+                                    <div class="flex-between">
+                                        <div>
+                                            <strong>Ahmad Rizki</strong>
+                                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                                Kamar 201 - Januari 2024<br>
+                                                Rp 1.500.000
+                                            </div>
+                                        </div>
+                                        <button class="btn">LIHAT</button>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="flex-between">
+                                        <div>
+                                            <strong>Siti Nurhaliza</strong>
+                                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                                Kamar 105 - Januari 2024<br>
+                                                Rp 1.200.000
+                                            </div>
+                                        </div>
+                                        <button class="btn">LIHAT</button>
+                                    </div>
+                                </li>
+                                <li class="list-item">
+                                    <div class="flex-between">
+                                        <div>
+                                            <strong>Eko Prasetyo</strong>
+                                            <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                                Kamar 108 - Januari 2024<br>
+                                                Rp 1.200.000
+                                            </div>
+                                        </div>
+                                        <button class="btn">LIHAT</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="card">
+                    <div class="card-header">Grafik Pendapatan Bulanan</div>
+                    <div class="card-body">
+                        <div class="chart-placeholder">
+                            [Chart] Chart Area<br>
+                            (Line Chart - Pendapatan 12 Bulan Terakhir)
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

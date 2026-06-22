@@ -128,6 +128,38 @@ Menggunakan sistem spacing 8px sebagai base unit:
 
 Wireframe adalah kerangka dasar yang menunjukkan layout dan struktur halaman tanpa detail visual. Wireframe fokus pada penempatan elemen dan alur navigasi.
 
+### 📁 Wireframe Visual Tersedia
+
+Selain wireframe text-based di bawah ini, kami juga menyediakan wireframe visual dalam berbagai format:
+
+**Format Tersedia:**
+1. **PlantUML** (`.puml`) - Diagram yang bisa di-render menjadi gambar
+   - Lokasi: `wireframes/plantuml/`
+   - Tools: PlantUML, VS Code extension, atau online editor
+
+2. **HTML Interaktif** (`.html`) - Wireframe yang bisa dibuka di browser
+   - Lokasi: `wireframes/html/`
+   - Fitur: Clickable, responsive, interactive
+   - **Start here**: [wireframes/html/index.html](wireframes/html/index.html)
+
+3. **PNG Images** (`.png`) - Screenshot untuk dokumentasi
+   - Lokasi: `wireframes/images/`
+   - Resolusi: 1920x1080 (desktop), 375x812 (mobile)
+
+**Dokumentasi Lengkap:**
+- [wireframes/README.md](wireframes/README.md) - Panduan lengkap wireframe
+- [wireframes/WIREFRAME_SUMMARY.md](wireframes/WIREFRAME_SUMMARY.md) - Summary dan design decisions
+
+**Quick Access:**
+```bash
+# Buka wireframe interaktif di browser
+cd wireframes/html
+start index.html
+
+# Atau gunakan live server
+python -m http.server 8080
+```
+
 ### 3.2.1 Halaman Login
 
 **Layout Structure:**

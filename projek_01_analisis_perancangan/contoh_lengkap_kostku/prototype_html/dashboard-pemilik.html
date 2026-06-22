@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pemilik - KostKu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                    <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+                </svg>
+                <span>KostKu</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="notification-btn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge"></span>
+            </button>
+            <div class="user-menu">
+                <div class="user-avatar">BP</div>
+                <span>Budi Pemilik</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard-pemilik.html" class="active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="kelola-kamar.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Kelola Kamar</span>
+                </a>
+            </li>
+            <li>
+                <a href="kelola-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Kelola Penghuni</span>
+                </a>
+            </li>
+            <li>
+                <a href="konfirmasi-pembayaran.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    <span>Konfirmasi Pembayaran</span>
+                </a>
+            </li>
+            <li>
+                <a href="kelola-komplain.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span>Kelola Komplain</span>
+                </a>
+            </li>
+            <li>
+                <a href="laporan.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>Laporan</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Welcome Section -->
+        <div class="card" style="background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); color: white; margin-bottom: 32px;">
+            <h2 style="color: white; margin-bottom: 8px;">Selamat Datang, Budi! 👋</h2>
+            <p style="opacity: 0.9;">Berikut adalah ringkasan operasional kost Anda hari ini.</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">Total Kamar</div>
+                    </div>
+                    <div class="stat-icon primary">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Kamar Terisi</div>
+                    </div>
+                    <div class="stat-icon success">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div style="font-size: 14px; color: var(--success); margin-top: 8px;">
+                    90% Occupancy Rate
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">27 Jt</div>
+                        <div class="stat-label">Pendapatan Bulan Ini</div>
+                    </div>
+                    <div class="stat-icon warning">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div style="font-size: 14px; color: var(--success); margin-top: 8px;">
+                    ↑ 12% dari bulan lalu
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Pembayaran Pending</div>
+                    </div>
+                    <div class="stat-icon danger">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 32px;">
+            <a href="konfirmasi-pembayaran.html" class="card" style="text-align: center; padding: 24px; cursor: pointer; text-decoration: none; color: inherit;">
+                <div style="width: 48px; height: 48px; background-color: #DBEAFE; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                    <svg width="24" height="24" fill="none" stroke="#3B82F6" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Konfirmasi Pembayaran</div>
+                <div style="font-size: 14px; color: var(--gray-500);">5 menunggu konfirmasi</div>
+            </a>
+
+            <a href="kelola-komplain.html" class="card" style="text-align: center; padding: 24px; cursor: pointer; text-decoration: none; color: inherit;">
+                <div style="width: 48px; height: 48px; background-color: #FEE2E2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                    <svg width="24" height="24" fill="none" stroke="#EF4444" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                </div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Kelola Komplain</div>
+                <div style="font-size: 14px; color: var(--gray-500);">3 komplain aktif</div>
+            </a>
+
+            <a href="kelola-penghuni.html" class="card" style="text-align: center; padding: 24px; cursor: pointer; text-decoration: none; color: inherit;">
+                <div style="width: 48px; height: 48px; background-color: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                    <svg width="24" height="24" fill="none" stroke="#10B981" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                </div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Kelola Penghuni</div>
+                <div style="font-size: 14px; color: var(--gray-500);">18 penghuni aktif</div>
+            </a>
+
+            <a href="laporan.html" class="card" style="text-align: center; padding: 24px; cursor: pointer; text-decoration: none; color: inherit;">
+                <div style="width: 48px; height: 48px; background-color: #FEF3C7; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                    <svg width="24" height="24" fill="none" stroke="#F59E0B" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                </div>
+                <div style="font-weight: 600; margin-bottom: 4px;">Laporan Keuangan</div>
+                <div style="font-size: 14px; color: var(--gray-500);">Lihat laporan lengkap</div>
+            </a>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="card" style="margin-bottom: 32px;">
+            <div class="card-header">
+                <h3 class="card-title">Aktivitas Terbaru</h3>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; gap: 16px; padding: 16px; background-color: var(--gray-50); border-radius: 8px;">
+                    <div style="width: 40px; height: 40px; background-color: #DBEAFE; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="20" height="20" fill="none" stroke="#3B82F6" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; margin-bottom: 4px;">Pembayaran Baru dari Nanda Shofa</div>
+                        <div style="font-size: 14px; color: var(--gray-500);">Kamar 201 - Januari 2024 - Rp 1.500.000</div>
+                        <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">5 menit yang lalu</div>
+                    </div>
+                    <span class="badge badge-warning">Pending</span>
+                </div>
+
+                <div style="display: flex; gap: 16px; padding: 16px; background-color: var(--gray-50); border-radius: 8px;">
+                    <div style="width: 40px; height: 40px; background-color: #FEE2E2; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="20" height="20" fill="none" stroke="#EF4444" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; margin-bottom: 4px;">Komplain Urgent - AC Tidak Dingin</div>
+                        <div style="font-size: 14px; color: var(--gray-500);">Kamar 201 - Nanda Shofa</div>
+                        <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">1 jam yang lalu</div>
+                    </div>
+                    <span class="badge badge-danger">Urgent</span>
+                </div>
+
+                <div style="display: flex; gap: 16px; padding: 16px; background-color: var(--gray-50); border-radius: 8px;">
+                    <div style="width: 40px; height: 40px; background-color: #D1FAE5; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 600; margin-bottom: 4px;">Pendaftar Baru - Siti Nurhaliza</div>
+                        <div style="font-size: 14px; color: var(--gray-500);">Tertarik Kamar 205 - Tipe Deluxe</div>
+                        <div style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">3 jam yang lalu</div>
+                    </div>
+                    <span class="badge badge-primary">Baru</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Pendapatan -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Pendapatan Bulanan</h3>
+            </div>
+            <div style="height: 300px; display: flex; align-items: flex-end; justify-content: space-around; gap: 8px; padding: 20px 0;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 180px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Jan</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">27 Jt</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 160px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Des</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">24 Jt</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Nov</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">30 Jt</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 170px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Okt</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">25.5 Jt</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 190px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Sep</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">28.5 Jt</div>
+                </div>
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                    <div style="width: 100%; height: 175px; background: linear-gradient(to top, #3B82F6, #60A5FA); border-radius: 8px 8px 0 0;"></div>
+                    <div style="margin-top: 8px; font-size: 14px; font-weight: 600;">Agu</div>
+                    <div style="font-size: 12px; color: var(--gray-500);">26 Jt</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

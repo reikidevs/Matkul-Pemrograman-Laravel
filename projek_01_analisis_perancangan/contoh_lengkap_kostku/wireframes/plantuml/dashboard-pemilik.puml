@@ -1,0 +1,130 @@
+@startsalt dashboard-pemilik
+{
+  {T
+    + **WIREFRAME: Dashboard Pemilik Kost**
+  }
+  
+  {#
+    == HEADER ==
+    {
+      [KostKu] | Dashboard | Kamar | Penghuni | Pembayaran | Komplain | Laporan | [[User] Budi Santoso ▼]
+    }
+    
+    == MAIN CONTENT ==
+    {+
+      {T
+        + SIDEBAR
+        | CONTENT AREA
+      }
+      {
+        {
+          [[Chart] <b>Dashboard</b>]
+          [[Room] Kelola Kamar]
+          [[Users] Kelola Penghuni]
+          [[Payment] Pembayaran]
+          [[Ticket] Komplain]
+          [[Report] Laporan]
+          [[Settings] Settings]
+          --
+          [[Exit] Logout]
+        }
+        |
+        {
+          {
+            <size:18><b>Dashboard Pemilik</b></size>
+            Overview Sistem KostKu
+          }
+          --
+          {T
+            + STATISTIK UTAMA
+          }
+          {+
+            {
+              <b>Total Kamar</b>
+              <size:28>20</size>
+              --
+              10 Lantai 1
+              10 Lantai 2
+            }
+            |
+            {
+              <b>Kamar Terisi</b>
+              <size:28><color:green>18</color></size>
+              --
+              Okupansi: 90%
+            }
+            |
+            {
+              <b>Pendapatan Bulan Ini</b>
+              <size:20>Rp 27.000.000</size>
+              --
+              <color:green>↑ 5%</color> vs bulan lalu
+            }
+            |
+            {
+              <b>Komplain Aktif</b>
+              <size:28><color:orange>5</color></size>
+              --
+              2 Urgent
+            }
+          }
+          --
+          {+
+            {T
+              + AKTIVITAS TERBARU
+            }
+            |
+            {T
+              + PEMBAYARAN PENDING
+            }
+          }
+          {+
+            {
+              [[Payment] <b>Pembayaran Baru</b>
+              Ahmad Rizki - Kamar 201
+              Rp 1.500.000
+              5 menit yang lalu
+              --
+              [[Alert] <b>Komplain Urgent</b>
+              Siti Nurhaliza - Kamar 105
+              AC Tidak Dingin
+              10 menit yang lalu
+              --
+              [[User] <b>Penghuni Baru</b>
+              Dedi Kurniawan - Kamar 203
+              15 menit yang lalu
+            }
+            |
+            {
+              [[Pending] <b>Ahmad Rizki</b>
+              Kamar 201 - Januari 2024
+              Rp 1.500.000
+              [LIHAT]
+              --
+              [[Pending] <b>Siti Nurhaliza</b>
+              Kamar 105 - Januari 2024
+              Rp 1.200.000
+              [LIHAT]
+              --
+              [[Pending] <b>Eko Prasetyo</b>
+              Kamar 108 - Januari 2024
+              Rp 1.200.000
+              [LIHAT]
+            }
+          }
+          --
+          {T
+            + GRAFIK PENDAPATAN BULANAN
+          }
+          {
+            [                                    ]
+            [        [Chart] Chart Area         ]
+            [    (Line Chart Pendapatan)        ]
+            [                                    ]
+          }
+        }
+      }
+    }
+  }
+}
+@endsalt

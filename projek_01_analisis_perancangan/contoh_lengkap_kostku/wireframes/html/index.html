@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframes - Sistem KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+    <style>
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+        .wireframe-card {
+            background: white;
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .wireframe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .wireframe-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .wireframe-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .wireframe-card .btn {
+            width: 100%;
+        }
+        .hero {
+            background: #e0e0e0;
+            padding: 40px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #666;
+        }
+        .section-title {
+            padding: 20px 30px;
+            background: #f9f9f9;
+            border-bottom: 2px solid #333;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframes - Sistem KostKu</div>
+            <div style="font-size: 12px; color: #666;">
+                Projek Analisis & Perancangan | PBKK
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Wireframes Sistem KostKu</h1>
+            <p>Kerangka dasar layout dan struktur halaman untuk sistem manajemen kost</p>
+            <p style="font-size: 14px; margin-top: 20px;">
+                <strong>Catatan:</strong> Wireframe ini menggunakan grayscale dan fokus pada struktur layout, bukan detail visual.
+            </p>
+        </div>
+
+        <!-- Authentication Section -->
+        <div class="section-title">Autentikasi</div>
+        <div class="wireframe-grid">
+            <div class="wireframe-card">
+                <h3>Login</h3>
+                <p>Halaman login untuk penghuni dan pemilik kost</p>
+                <a href="login.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+        </div>
+
+        <!-- Penghuni Section -->
+        <div class="section-title">Fitur Penghuni</div>
+        <div class="wireframe-grid">
+            <div class="wireframe-card">
+                <h3>Dashboard Penghuni</h3>
+                <p>Overview informasi penghuni, quick stats, dan aktivitas terbaru</p>
+                <a href="dashboard-penghuni.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+
+            <div class="wireframe-card">
+                <h3>Pembayaran</h3>
+                <p>Kelola tagihan, upload bukti transfer, dan riwayat pembayaran</p>
+                <a href="pembayaran.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+
+            <div class="wireframe-card">
+                <h3>Komplain</h3>
+                <p>Ajukan komplain baru dan tracking status komplain</p>
+                <a href="komplain.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+        </div>
+
+        <!-- Pemilik Section -->
+        <div class="section-title">Fitur Pemilik Kost</div>
+        <div class="wireframe-grid">
+            <div class="wireframe-card">
+                <h3>Dashboard Pemilik</h3>
+                <p>Overview statistik, aktivitas terbaru, dan grafik pendapatan</p>
+                <a href="dashboard-pemilik.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+
+            <div class="wireframe-card">
+                <h3>Konfirmasi Pembayaran</h3>
+                <p>Approve atau reject pembayaran dari penghuni</p>
+                <a href="konfirmasi-pembayaran.html" class="btn btn-primary">Lihat Wireframe</a>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div style="padding: 30px; background: #f9f9f9; border-top: 2px solid #333;">
+            <h2 style="font-size: 20px; margin-bottom: 20px;">Informasi Wireframe</h2>
+            
+            <div class="grid grid-2 gap-20">
+                <div class="card">
+                    <div class="card-header">Karakteristik Wireframe</div>
+                    <div class="card-body">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">[Check] Grayscale (hitam-putih-abu)</li>
+                            <li style="margin-bottom: 10px;">[Check] Fokus pada struktur layout</li>
+                            <li style="margin-bottom: 10px;">[Check] Placeholder untuk konten</li>
+                            <li style="margin-bottom: 10px;">[Check] Navigasi yang jelas</li>
+                            <li style="margin-bottom: 10px;">[Check] Responsive design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">Format Tersedia</div>
+                    <div class="card-body">
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: 10px;">[File] <strong>PlantUML</strong> - Diagram format (.puml)</li>
+                            <li style="margin-bottom: 10px;">[Web] <strong>HTML</strong> - Interaktif di browser</li>
+                            <li style="margin-bottom: 10px;">[Image] <strong>PNG</strong> - Screenshot untuk dokumentasi</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-20">
+                <div class="card-header">Dokumentasi Terkait</div>
+                <div class="card-body">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">
+                            [Doc] <a href="../BAB_3_UIUX.md" style="color: #333; text-decoration: underline;">BAB_3_UIUX.md</a> - Dokumentasi lengkap UI/UX Design
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            [Design] <a href="../prototype_html/" style="color: #333; text-decoration: underline;">Prototype HTML</a> - Prototype dengan styling lengkap
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            [Chart] <a href="../diagrams/" style="color: #333; text-decoration: underline;">Diagrams</a> - Use Case, Activity, Sequence, Class Diagram
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-20" style="font-size: 12px; color: #999;">
+                © 2024 KostKu - Projek Analisis & Perancangan<br>
+                PBKK (Pemrograman Berbasis Kerangka Kerja) - Universitas Semarang
+            </div>
+        </div>
+    </div>
+</body>
+</html>

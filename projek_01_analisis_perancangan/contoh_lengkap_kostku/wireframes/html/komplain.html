@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Komplain | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Halaman Komplain</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">← Kembali ke Index</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">KostKu</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard-penghuni.html">Dashboard</a></li>
+                    <li><a href="#">Kamar</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                    <li><a href="komplain.html" class="active">Komplain</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">[User] Ahmad Rizki &#9662;</div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard-penghuni.html">[Home] Dashboard</a></li>
+                    <li><a href="#">[Room] Kamar Saya</a></li>
+                    <li><a href="pembayaran.html">[Payment] Pembayaran</a></li>
+                    <li><a href="komplain.html" class="active">[Ticket] Komplain</a></li>
+                    <li><a href="#">[User] Profile</a></li>
+                    <li style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd;">
+                        <a href="login.html">[Exit] Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="flex-between mb-30">
+                    <div>
+                        <h1 class="page-title">Komplain</h1>
+                        <div class="breadcrumb">Dashboard > Komplain</div>
+                    </div>
+                    <button class="btn btn-success" onclick="openKomplainModal()">
+                        + AJUKAN KOMPLAIN BARU
+                    </button>
+                </div>
+
+                <!-- Filter -->
+                <div class="card mb-20">
+                    <div class="flex gap-20">
+                        <div>
+                            <label style="font-size: 14px; margin-right: 10px;">Filter:</label>
+                            <select style="padding: 8px; border: 2px solid #999;">
+                                <option>Semua Status</option>
+                                <option>Open</option>
+                                <option>In Progress</option>
+                                <option>Resolved</option>
+                                <option>Closed</option>
+                            </select>
+                        </div>
+                        <div style="flex: 1;">
+                            <input type="text" class="form-input" placeholder="[Search] Cari komplain...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Komplain List -->
+                <div class="card-header">Daftar Komplain</div>
+
+                <!-- Komplain Item 1 - Urgent -->
+                <div class="card mb-20" style="border-left: 6px solid #c00;">
+                    <div class="flex-between mb-10">
+                        <div>
+                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">
+                                #KMP-001 | <span class="badge badge-danger">Urgent</span>
+                            </div>
+                            <h3 style="font-size: 18px; margin-bottom: 5px;">AC Tidak Dingin</h3>
+                        </div>
+                        <span class="badge badge-info">Open</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                        AC di kamar 201 tidak dingin sejak 2 hari yang lalu. Sudah dicoba dibersihkan tapi tetap tidak dingin.
+                    </p>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 15px;">
+                        Dibuat: 5 Januari 2024, 10:30
+                    </div>
+                    <button class="btn">LIHAT DETAIL</button>
+                </div>
+
+                <!-- Komplain Item 2 - Medium -->
+                <div class="card mb-20" style="border-left: 6px solid #999;">
+                    <div class="flex-between mb-10">
+                        <div>
+                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">
+                                #KMP-002 | <span class="badge badge-warning">Medium</span>
+                            </div>
+                            <h3 style="font-size: 18px; margin-bottom: 5px;">Kamar Mandi Bocor</h3>
+                        </div>
+                        <span class="badge badge-warning">In Progress</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                        Air kamar mandi bocor ke lantai. Perlu diperbaiki segera.
+                    </p>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 15px;">
+                        Dibuat: 3 Januari 2024, 14:20<br>
+                        Update: Teknisi akan datang besok
+                    </div>
+                    <button class="btn">LIHAT DETAIL</button>
+                </div>
+
+                <!-- Komplain Item 3 - Resolved -->
+                <div class="card mb-20" style="border-left: 6px solid #666; opacity: 0.7;">
+                    <div class="flex-between mb-10">
+                        <div>
+                            <div style="font-size: 12px; color: #666; margin-bottom: 5px;">
+                                #KMP-003 | <span class="badge">Low</span>
+                            </div>
+                            <h3 style="font-size: 18px; margin-bottom: 5px;">Lampu Kamar Mati</h3>
+                        </div>
+                        <span class="badge badge-success">Resolved</span>
+                    </div>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                        Lampu kamar perlu diganti.
+                    </p>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 15px;">
+                        Dibuat: 1 Januari 2024, 09:15<br>
+                        Selesai: 2 Januari 2024, 11:00
+                    </div>
+                    <button class="btn">LIHAT DETAIL</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Komplain Modal -->
+    <div class="modal-overlay" id="komplainModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Ajukan Komplain Baru</div>
+                <button class="modal-close" onclick="closeKomplainModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Judul Komplain</label>
+                    <input type="text" class="form-input" placeholder="Contoh: AC Tidak Dingin">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Prioritas</label>
+                    <select class="form-input">
+                        <option>Low - Tidak mendesak</option>
+                        <option>Medium - Perlu perhatian</option>
+                        <option>High - Penting</option>
+                        <option>Urgent - Sangat mendesak</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Deskripsi</label>
+                    <textarea class="form-input" rows="5" placeholder="Jelaskan masalah Anda secara detail..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Upload Foto (Opsional)</label>
+                    <div class="image-placeholder">
+                        [Image] Drag & Drop atau Click untuk Upload<br>
+                        (Format: JPG, PNG - Max 5MB)
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeKomplainModal()">Batal</button>
+                <button class="btn btn-primary" onclick="submitKomplain()">Submit Komplain</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openKomplainModal() {
+            document.getElementById('komplainModal').classList.add('active');
+        }
+
+        function closeKomplainModal() {
+            document.getElementById('komplainModal').classList.remove('active');
+        }
+
+        function submitKomplain() {
+            alert('Komplain berhasil diajukan!\n\nNomor tiket: #KMP-004\nStatus: Open\n\nAnda akan menerima notifikasi jika ada update.');
+            closeKomplainModal();
+        }
+    </script>
+</body>
+</html>

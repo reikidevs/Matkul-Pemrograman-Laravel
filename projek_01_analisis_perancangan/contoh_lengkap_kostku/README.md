@@ -13,9 +13,11 @@
 Dokumen lengkap ini terdiri dari:
 
 1. **BAB_1_PENDAHULUAN.md** - Latar belakang dan job desk
-2. **BAB_2_UML.md** - Semua diagram UML
+2. **BAB_2_COMPLETE.md** - Semua diagram UML lengkap
 3. **BAB_3_UIUX.md** - Wireframe, mockup, dan prototype
-4. **diagrams/** - Folder berisi semua diagram dalam format PlantUML
+4. **DOKUMEN_FINAL.md** - Kompilasi lengkap semua BAB (siap export ke .docx)
+5. **diagrams/** - Folder berisi semua diagram dalam format PlantUML
+6. **prototype_html/** - Prototype HTML interaktif yang bisa dibuka di browser
 
 ---
 

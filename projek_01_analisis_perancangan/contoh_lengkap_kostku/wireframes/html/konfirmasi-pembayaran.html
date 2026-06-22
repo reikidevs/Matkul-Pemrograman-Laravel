@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Konfirmasi Pembayaran | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Konfirmasi Pembayaran (Pemilik)</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">← Kembali ke Index</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">KostKu</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard-pemilik.html">Dashboard</a></li>
+                    <li><a href="#">Kamar</a></li>
+                    <li><a href="#">Penghuni</a></li>
+                    <li><a href="konfirmasi-pembayaran.html" class="active">Pembayaran</a></li>
+                    <li><a href="#">Komplain</a></li>
+                    <li><a href="#">Laporan</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">[User] Budi Santoso &#9662;</div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard-pemilik.html">[Chart] Dashboard</a></li>
+                    <li><a href="#">[Room] Kelola Kamar</a></li>
+                    <li><a href="#">[Users] Kelola Penghuni</a></li>
+                    <li><a href="konfirmasi-pembayaran.html" class="active">[Payment] Pembayaran</a></li>
+                    <li><a href="#">[Ticket] Komplain</a></li>
+                    <li><a href="#">[Report] Laporan</a></li>
+                    <li><a href="#">[Settings] Settings</a></li>
+                    <li style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd;">
+                        <a href="login.html">[Exit] Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1 class="page-title">Konfirmasi Pembayaran</h1>
+                    <div class="breadcrumb">Dashboard > Pembayaran > Konfirmasi</div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="card mb-20">
+                    <div class="flex gap-10">
+                        <button class="btn btn-primary">Pending (5)</button>
+                        <button class="btn">Approved</button>
+                        <button class="btn">Rejected</button>
+                    </div>
+                </div>
+
+                <!-- Pembayaran Table -->
+                <div class="card">
+                    <div class="card-header">Pembayaran Menunggu Konfirmasi</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Penghuni</th>
+                                    <th>Kamar</th>
+                                    <th>Periode</th>
+                                    <th>Jumlah</th>
+                                    <th>Tanggal Upload</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ahmad Rizki</td>
+                                    <td>201</td>
+                                    <td>Jan 2024</td>
+                                    <td>Rp 1.500.000</td>
+                                    <td>5 Jan 2024, 10:30</td>
+                                    <td><button class="btn btn-primary" onclick="openDetailModal('Ahmad Rizki', '201', 'Januari 2024', 'Rp 1.500.000')">LIHAT DETAIL</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Siti Nurhaliza</td>
+                                    <td>105</td>
+                                    <td>Jan 2024</td>
+                                    <td>Rp 1.200.000</td>
+                                    <td>5 Jan 2024, 09:15</td>
+                                    <td><button class="btn btn-primary" onclick="openDetailModal('Siti Nurhaliza', '105', 'Januari 2024', 'Rp 1.200.000')">LIHAT DETAIL</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Eko Prasetyo</td>
+                                    <td>108</td>
+                                    <td>Jan 2024</td>
+                                    <td>Rp 1.200.000</td>
+                                    <td>4 Jan 2024, 16:45</td>
+                                    <td><button class="btn btn-primary" onclick="openDetailModal('Eko Prasetyo', '108', 'Januari 2024', 'Rp 1.200.000')">LIHAT DETAIL</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Rina Wati</td>
+                                    <td>203</td>
+                                    <td>Jan 2024</td>
+                                    <td>Rp 1.500.000</td>
+                                    <td>4 Jan 2024, 14:20</td>
+                                    <td><button class="btn btn-primary" onclick="openDetailModal('Rina Wati', '203', 'Januari 2024', 'Rp 1.500.000')">LIHAT DETAIL</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Budi Hartono</td>
+                                    <td>110</td>
+                                    <td>Jan 2024</td>
+                                    <td>Rp 1.200.000</td>
+                                    <td>4 Jan 2024, 11:00</td>
+                                    <td><button class="btn btn-primary" onclick="openDetailModal('Budi Hartono', '110', 'Januari 2024', 'Rp 1.200.000')">LIHAT DETAIL</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Detail Modal -->
+    <div class="modal-overlay" id="detailModal">
+        <div class="modal" style="max-width: 900px;">
+            <div class="modal-header">
+                <div class="modal-title">Detail Pembayaran</div>
+                <button class="modal-close" onclick="closeDetailModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="grid grid-2 gap-20">
+                    <!-- Left: Bukti Transfer -->
+                    <div>
+                        <div class="card-header">Bukti Transfer</div>
+                        <div class="image-placeholder" style="min-height: 400px;">
+                            [Image] Image Area<br>
+                            (Screenshot Transfer Bank)<br><br>
+                            <div style="margin-top: 20px;">
+                                <button class="btn">[Zoom] Zoom</button>
+                                <button class="btn">[Download] Download</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info & Actions -->
+                    <div>
+                        <div class="card-header">Informasi Pembayaran</div>
+                        <div class="mb-20">
+                            <div style="margin-bottom: 15px;">
+                                <strong>Penghuni:</strong> <span id="modalPenghuni">Ahmad Rizki</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong>Kamar:</strong> <span id="modalKamar">201</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong>Periode:</strong> <span id="modalPeriode">Januari 2024</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong>Jumlah:</strong> <span id="modalJumlah" style="font-size: 20px; font-weight: bold;">Rp 1.500.000</span>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong>Tanggal Upload:</strong> 5 Jan 2024, 10:30
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <strong>Metode:</strong> Transfer Bank
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Catatan Penghuni:</label>
+                            <div style="padding: 12px; border: 2px solid #e0e0e0; background: #f9f9f9;">
+                                Sudah transfer via BCA pada tanggal 5 Januari 2024 pukul 10:00
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Catatan Pemilik (Opsional):</label>
+                            <textarea class="form-input" rows="3" placeholder="Tambahkan catatan jika diperlukan..."></textarea>
+                        </div>
+
+                        <div class="flex gap-10 mt-20">
+                            <button class="btn btn-success" style="flex: 1;" onclick="approvePembayaran()">
+                                [Check] APPROVE
+                            </button>
+                            <button class="btn btn-danger" style="flex: 1;" onclick="rejectPembayaran()">
+                                [X] REJECT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDetailModal(penghuni, kamar, periode, jumlah) {
+            document.getElementById('modalPenghuni').textContent = penghuni;
+            document.getElementById('modalKamar').textContent = kamar;
+            document.getElementById('modalPeriode').textContent = periode;
+            document.getElementById('modalJumlah').textContent = jumlah;
+            document.getElementById('detailModal').classList.add('active');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detailModal').classList.remove('active');
+        }
+
+        function approvePembayaran() {
+            if (confirm('Approve pembayaran ini?\n\nPenghuni akan menerima notifikasi bahwa pembayaran telah diterima.')) {
+                alert('[Success] Pembayaran berhasil di-approve!\n\nStatus pembayaran telah diupdate dan notifikasi telah dikirim ke penghuni.');
+                closeDetailModal();
+            }
+        }
+
+        function rejectPembayaran() {
+            const alasan = prompt('Masukkan alasan penolakan:');
+            if (alasan) {
+                alert('[Rejected] Pembayaran ditolak!\n\nAlasan: ' + alasan + '\n\nPenghuni akan menerima notifikasi penolakan.');
+                closeDetailModal();
+            }
+        }
+    </script>
+</body>
+</html>

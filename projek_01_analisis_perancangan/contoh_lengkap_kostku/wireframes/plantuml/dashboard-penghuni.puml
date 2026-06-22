@@ -1,0 +1,86 @@
+@startsalt dashboard-penghuni
+{
+  {T
+    + **WIREFRAME: Dashboard Penghuni**
+  }
+  
+  {#
+    == HEADER ==
+    {
+      [KostKu] | Dashboard | Kamar | Pembayaran | Komplain | Profile | [[User] Ahmad Rizki ▼]
+    }
+    
+    == MAIN CONTENT ==
+    {+
+      {T
+        + SIDEBAR
+        | CONTENT AREA
+      }
+      {
+        {
+          [[Home] Dashboard]
+          [[Room] Kamar Saya]
+          [[Payment] Pembayaran]
+          [[Ticket] Komplain]
+          [[User] Profile]
+          --
+          [[Exit] Logout]
+        }
+        |
+        {
+          {
+            <size:18><b>Selamat Datang, Ahmad Rizki!</b></size>
+            Status: <color:green>Aktif</color> | Kamar: <b>201</b>
+          }
+          --
+          {T
+            + QUICK STATS
+          }
+          {+
+            {
+              <b>Kamar</b>
+              <size:24>201</size>
+              Lantai 2
+            }
+            |
+            {
+              <b>Status</b>
+              <size:24><color:green>Aktif</color></size>
+              Sejak Jan 2024
+            }
+            |
+            {
+              <b>Tagihan</b>
+              <size:24>1</size>
+              Belum Bayar
+            }
+            |
+            {
+              <b>Komplain</b>
+              <size:24>2</size>
+              Open
+            }
+          }
+          --
+          {T
+            + AKTIVITAS TERBARU
+          }
+          {
+            [[Payment] Pembayaran Januari 2024 - <color:orange>Pending</color>
+            [[Ticket] Komplain AC Tidak Dingin - <color:blue>Open</color>
+            [[Check] Pembayaran Desember 2023 - <color:green>Lunas</color>
+          }
+          --
+          {T
+            + PENGUMUMAN
+          }
+          {
+            [[Info] Pemadaman listrik tanggal 15 Jan 2024
+            [[Info] Pembayaran dapat dilakukan via transfer
+          }
+        }
+      }
+    }
+  }
+}
+@endsalt

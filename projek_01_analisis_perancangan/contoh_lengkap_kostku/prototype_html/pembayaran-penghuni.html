@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - KostKu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                    <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+                </svg>
+                <span>KostKu</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="notification-btn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge"></span>
+            </button>
+            <div class="user-menu">
+                <div class="user-avatar">NS</div>
+                <span>Nanda Shofa</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="kamar-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Info Kamar</span>
+                </a>
+            </li>
+            <li>
+                <a href="pembayaran-penghuni.html" class="active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    <span>Pembayaran</span>
+                </a>
+            </li>
+            <li>
+                <a href="komplain-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span>Komplain</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Pembayaran Sewa</h1>
+            <div class="breadcrumb">
+                <span>Dashboard</span>
+                <span>/</span>
+                <span>Pembayaran</span>
+            </div>
+        </div>
+
+        <!-- Tagihan Aktif -->
+        <div class="card" style="margin-bottom: 32px;">
+            <div class="card-header">
+                <h3 class="card-title">Tagihan Aktif</h3>
+            </div>
+            
+            <!-- Tagihan Card -->
+            <div style="border: 2px solid #F59E0B; border-radius: 12px; padding: 24px; background-color: #FFFBEB;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
+                    <div>
+                        <h3 style="font-size: 20px; margin-bottom: 8px;">Januari 2024</h3>
+                        <p style="color: var(--gray-500); font-size: 14px;">Kamar 201 - Tipe Deluxe</p>
+                    </div>
+                    <span class="badge badge-warning">Belum Dibayar</span>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Jumlah Tagihan</div>
+                        <div style="font-size: 24px; font-weight: 700; color: var(--gray-900);">Rp 1.500.000</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Jatuh Tempo</div>
+                        <div style="font-size: 18px; font-weight: 600; color: #D97706;">10 Januari 2024</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Denda</div>
+                        <div style="font-size: 18px; font-weight: 600; color: var(--gray-900);">Rp 0</div>
+                    </div>
+                </div>
+                
+                <div style="background-color: white; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+                    <div style="font-weight: 600; margin-bottom: 12px;">Informasi Pembayaran:</div>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--gray-500);">Bank:</span>
+                            <span style="font-weight: 500;">BCA</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--gray-500);">No. Rekening:</span>
+                            <span style="font-weight: 500;">1234567890</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: var(--gray-500);">Atas Nama:</span>
+                            <span style="font-weight: 500;">PT Kost Sejahtera</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button onclick="openPaymentModal()" class="btn btn-primary btn-block">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    Upload Bukti Pembayaran
+                </button>
+            </div>
+        </div>
+
+        <!-- Riwayat Pembayaran -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Riwayat Pembayaran</h3>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Periode</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal Bayar</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Desember 2023</td>
+                            <td>Rp 1.500.000</td>
+                            <td>5 Desember 2023</td>
+                            <td><span class="badge badge-success">Lunas</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-secondary">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Kwitansi
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>November 2023</td>
+                            <td>Rp 1.500.000</td>
+                            <td>3 November 2023</td>
+                            <td><span class="badge badge-success">Lunas</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-secondary">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Kwitansi
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Oktober 2023</td>
+                            <td>Rp 1.500.000</td>
+                            <td>8 Oktober 2023</td>
+                            <td><span class="badge badge-success">Lunas</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-secondary">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Kwitansi
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Upload Bukti -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Bukti Pembayaran</h3>
+                <button class="modal-close" onclick="closePaymentModal()">&times;</button>
+            </div>
+            
+            <form id="paymentForm">
+                <div class="form-group">
+                    <label>Periode</label>
+                    <input type="text" value="Januari 2024" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label>Jumlah Dibayar</label>
+                    <input type="text" value="Rp 1.500.000" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label>Metode Pembayaran</label>
+                    <select required>
+                        <option value="">Pilih Metode</option>
+                        <option value="transfer">Transfer Bank</option>
+                        <option value="ewallet">E-Wallet</option>
+                        <option value="cash">Cash</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Bukti Transfer</label>
+                    <input type="file" accept="image/*,.pdf" required>
+                    <p style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">
+                        Format: JPG, PNG, PDF (Max 2MB)
+                    </p>
+                </div>
+                
+                <div class="form-group">
+                    <label>Catatan (Opsional)</label>
+                    <textarea placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 12px;">
+                    <button type="button" onclick="closePaymentModal()" class="btn btn-secondary" style="flex: 1;">Batal</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1;">Submit Pembayaran</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openPaymentModal() {
+            document.getElementById('paymentModal').classList.add('active');
+        }
+        
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+        }
+        
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pembayaran berhasil disubmit! Menunggu konfirmasi dari pemilik kost.');
+            closePaymentModal();
+            // Reload page to show updated status
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePaymentModal();
+            }
+        });
+    </script>
+</body>
+</html>

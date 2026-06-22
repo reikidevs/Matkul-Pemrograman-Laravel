@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Pembayaran | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Halaman Pembayaran</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">← Kembali ke Index</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">KostKu</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard-penghuni.html">Dashboard</a></li>
+                    <li><a href="#">Kamar</a></li>
+                    <li><a href="pembayaran.html" class="active">Pembayaran</a></li>
+                    <li><a href="komplain.html">Komplain</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">[User] Ahmad Rizki &#9662;</div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard-penghuni.html">[Home] Dashboard</a></li>
+                    <li><a href="#">[Room] Kamar Saya</a></li>
+                    <li><a href="pembayaran.html" class="active">[Payment] Pembayaran</a></li>
+                    <li><a href="komplain.html">[Ticket] Komplain</a></li>
+                    <li><a href="#">[User] Profile</a></li>
+                    <li style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd;">
+                        <a href="login.html">[Exit] Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <h1 class="page-title">Pembayaran Sewa</h1>
+                    <div class="breadcrumb">Dashboard > Pembayaran</div>
+                </div>
+
+                <!-- Tagihan Belum Dibayar -->
+                <div class="card-header">Tagihan Belum Dibayar</div>
+                <div class="card mb-30" style="border-color: #c00;">
+                    <div class="flex-between mb-20">
+                        <div>
+                            <h3 style="font-size: 20px; margin-bottom: 5px;">Januari 2024</h3>
+                            <p style="color: #666; font-size: 14px;">Kamar 201</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 24px; font-weight: bold;">Rp 1.500.000</div>
+                        </div>
+                    </div>
+                    <div class="mb-20">
+                        <div style="font-size: 14px; margin-bottom: 5px;">
+                            <strong>Jatuh Tempo:</strong> <span style="color: #c00;">10 Januari 2024</span>
+                        </div>
+                        <div style="font-size: 14px;">
+                            <strong>Status:</strong> <span class="badge badge-warning">Belum Bayar</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block" onclick="openUploadModal()">
+                        BAYAR SEKARANG
+                    </button>
+                </div>
+
+                <!-- Riwayat Pembayaran -->
+                <div class="card">
+                    <div class="card-header">Riwayat Pembayaran</div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Periode</th>
+                                    <th>Jumlah</th>
+                                    <th>Tanggal Bayar</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Desember 2023</td>
+                                    <td>Rp 1.500.000</td>
+                                    <td>05 Des 2023</td>
+                                    <td><span class="badge badge-success">Lunas</span></td>
+                                    <td><button class="btn">[Doc] Kwitansi</button></td>
+                                </tr>
+                                <tr>
+                                    <td>November 2023</td>
+                                    <td>Rp 1.500.000</td>
+                                    <td>03 Nov 2023</td>
+                                    <td><span class="badge badge-success">Lunas</span></td>
+                                    <td><button class="btn">[Doc] Kwitansi</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Oktober 2023</td>
+                                    <td>Rp 1.500.000</td>
+                                    <td>08 Okt 2023</td>
+                                    <td><span class="badge badge-success">Lunas</span></td>
+                                    <td><button class="btn">[Doc] Kwitansi</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal-overlay" id="uploadModal">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title">Upload Bukti Transfer</div>
+                <button class="modal-close" onclick="closeUploadModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-20">
+                    <strong>Periode:</strong> Januari 2024<br>
+                    <strong>Jumlah:</strong> Rp 1.500.000<br>
+                    <strong>Kamar:</strong> 201
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Bukti Transfer</label>
+                    <div class="image-placeholder">
+                        [Image] Drag & Drop atau Click untuk Upload<br>
+                        (Format: JPG, PNG - Max 2MB)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Catatan (Opsional)</label>
+                    <textarea class="form-input" rows="3" placeholder="Contoh: Transfer via BCA"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="closeUploadModal()">Batal</button>
+                <button class="btn btn-primary" onclick="submitPayment()">Submit Pembayaran</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openUploadModal() {
+            document.getElementById('uploadModal').classList.add('active');
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.remove('active');
+        }
+
+        function submitPayment() {
+            alert('Pembayaran berhasil disubmit!\n\nBukti transfer Anda akan diverifikasi oleh pemilik kost.');
+            closeUploadModal();
+        }
+    </script>
+</body>
+</html>

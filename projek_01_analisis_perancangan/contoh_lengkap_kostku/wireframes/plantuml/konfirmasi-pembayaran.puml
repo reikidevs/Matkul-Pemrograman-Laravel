@@ -1,0 +1,124 @@
+@startsalt konfirmasi-pembayaran
+{
+  {T
+    + **WIREFRAME: Konfirmasi Pembayaran (Pemilik)**
+  }
+  
+  {#
+    == HEADER ==
+    {
+      [KostKu] | Dashboard | Kamar | Penghuni | Pembayaran | Komplain | Laporan | [[User] Budi Santoso ▼]
+    }
+    
+    == MAIN CONTENT ==
+    {+
+      {T
+        + SIDEBAR
+        | CONTENT AREA
+      }
+      {
+        {
+          [[Chart] Dashboard]
+          [[Room] Kelola Kamar]
+          [[Users] Kelola Penghuni]
+          [<b>[Payment] Pembayaran</b>]
+          [[Ticket] Komplain]
+          [[Report] Laporan]
+          [[Settings] Settings]
+          --
+          [[Exit] Logout]
+        }
+        |
+        {
+          {
+            <size:18><b>Konfirmasi Pembayaran</b></size>
+            Dashboard > Pembayaran > Konfirmasi
+          }
+          --
+          {
+            Tab: [<b>Pending (5)</b>] | [Approved] | [Rejected]
+          }
+          --
+          {T
+            + PEMBAYARAN MENUNGGU KONFIRMASI
+          }
+          {
+            {T
+              + Penghuni
+              | Kamar
+              | Periode
+              | Jumlah
+              | Tanggal Upload
+              | Aksi
+            }
+            {
+              Ahmad Rizki
+              | 201
+              | Jan 2024
+              | Rp 1.500.000
+              | 5 Jan 2024, 10:30
+              | [LIHAT DETAIL]
+            }
+            {
+              Siti Nurhaliza
+              | 105
+              | Jan 2024
+              | Rp 1.200.000
+              | 5 Jan 2024, 09:15
+              | [LIHAT DETAIL]
+            }
+            {
+              Eko Prasetyo
+              | 108
+              | Jan 2024
+              | Rp 1.200.000
+              | 4 Jan 2024, 16:45
+              | [LIHAT DETAIL]
+            }
+          }
+          --
+          {T
+            + DETAIL PEMBAYARAN (Modal)
+          }
+          {+
+            {
+              <b>BUKTI TRANSFER</b>
+              --
+              [                    ]
+              [   [Image] Image    ]
+              [   (Screenshot)     ]
+              [   Transfer Bank    ]
+              [                    ]
+              --
+              [[Zoom] Zoom] [[Download] Download]
+            }
+            |
+            {
+              <b>INFORMASI PEMBAYARAN</b>
+              --
+              Penghuni: <b>Ahmad Rizki</b>
+              Kamar: <b>201</b>
+              --
+              Periode: <b>Januari 2024</b>
+              Jumlah: <b>Rp 1.500.000</b>
+              --
+              Tanggal Upload: 5 Jan 2024, 10:30
+              Metode: Transfer Bank
+              --
+              Catatan Penghuni:
+              [ Sudah transfer via BCA        ]
+              --
+              --
+              Catatan Pemilik (opsional):
+              [                               ]
+              [                               ]
+              --
+              [  [Check] APPROVE  ] [  [X] REJECT  ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@endsalt

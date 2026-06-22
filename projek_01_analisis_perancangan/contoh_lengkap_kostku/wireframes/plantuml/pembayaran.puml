@@ -1,0 +1,91 @@
+@startsalt pembayaran
+{
+  {T
+    + **WIREFRAME: Halaman Pembayaran**
+  }
+  
+  {#
+    == HEADER ==
+    {
+      [KostKu] | Dashboard | Kamar | Pembayaran | Komplain | Profile | [[User] Ahmad Rizki ▼]
+    }
+    
+    == MAIN CONTENT ==
+    {+
+      {T
+        + SIDEBAR
+        | CONTENT AREA
+      }
+      {
+        {
+          [[Home] Dashboard]
+          [[Room] Kamar Saya]
+          [<b>[Payment] Pembayaran</b>]
+          [[Ticket] Komplain]
+          [[User] Profile]
+          --
+          [[Exit] Logout]
+        }
+        |
+        {
+          {
+            <size:18><b>Pembayaran Sewa</b></size>
+            Dashboard > Pembayaran
+          }
+          --
+          {T
+            + TAGIHAN BELUM DIBAYAR
+          }
+          {
+            {
+              <b>Januari 2024</b>
+              Kamar 201
+              --
+              <size:20><b>Rp 1.500.000</b></size>
+              --
+              Jatuh Tempo: <color:red>10 Januari 2024</color>
+              Status: <color:orange>Belum Bayar</color>
+              --
+              [  BAYAR SEKARANG  ]
+            }
+          }
+          --
+          {T
+            + RIWAYAT PEMBAYARAN
+          }
+          {
+            {T
+              + Periode
+              | Jumlah
+              | Tanggal Bayar
+              | Status
+              | Aksi
+            }
+            {
+              Desember 2023
+              | Rp 1.500.000
+              | 05 Des 2023
+              | <color:green>Lunas</color>
+              | [[Doc] Kwitansi]
+            }
+            {
+              November 2023
+              | Rp 1.500.000
+              | 03 Nov 2023
+              | <color:green>Lunas</color>
+              | [[Doc] Kwitansi]
+            }
+            {
+              Oktober 2023
+              | Rp 1.500.000
+              | 08 Okt 2023
+              | <color:green>Lunas</color>
+              | [[Doc] Kwitansi]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@endsalt

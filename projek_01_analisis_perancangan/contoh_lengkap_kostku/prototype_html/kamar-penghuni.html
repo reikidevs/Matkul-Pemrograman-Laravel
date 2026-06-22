@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info Kamar - KostKu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                    <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+                </svg>
+                <span>KostKu</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="notification-btn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge"></span>
+            </button>
+            <div class="user-menu">
+                <div class="user-avatar">NSdiv>
+                <span>Nanda Shofa</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="kamar-penghuni.html" class="active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Info Kamar</span>
+                </a>
+            </li>
+            <li>
+                <a href="pembayaran-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    <span>Pembayaran</span>
+                </a>
+            </li>
+            <li>
+                <a href="komplain-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span>Komplain</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Informasi Kamar</h1>
+            <div class="breadcrumb">
+                <span>Dashboard</span>
+                <span>/</span>
+                <span>Info Kamar</span>
+            </div>
+        </div>
+
+        <!-- Kamar Info Card -->
+        <div class="card" style="margin-bottom: 24px;">
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px;">
+                <!-- Foto Kamar -->
+                <div>
+                    <div style="width: 100%; height: 300px; background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 48px;">
+                        🏠
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px;">
+                        <div style="height: 80px; background-color: var(--gray-200); border-radius: 8px;"></div>
+                        <div style="height: 80px; background-color: var(--gray-200); border-radius: 8px;"></div>
+                        <div style="height: 80px; background-color: var(--gray-200); border-radius: 8px;"></div>
+                    </div>
+                </div>
+
+                <!-- Detail Kamar -->
+                <div>
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px;">
+                        <div>
+                            <h2 style="font-size: 28px; margin-bottom: 8px;">Kamar 201</h2>
+                            <span class="badge badge-success">Aktif</span>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 14px; color: var(--gray-500);">Harga Sewa</div>
+                            <div style="font-size: 32px; font-weight: 700; color: var(--primary);">Rp 1.500.000</div>
+                            <div style="font-size: 14px; color: var(--gray-500);">per bulan</div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px;">
+                        <div>
+                            <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Tipe Kamar</div>
+                            <div style="font-weight: 600;">Deluxe</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Luas Kamar</div>
+                            <div style="font-weight: 600;">4 x 3.5 meter (14 m²)</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Lantai</div>
+                            <div style="font-weight: 600;">Lantai 2</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Status</div>
+                            <div style="font-weight: 600;">Ditempati</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px;">Fasilitas Kamar</h3>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Kasur Single Bed</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Lemari 2 Pintu</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>AC 1 PK</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Kamar Mandi Dalam</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>WiFi Unlimited</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>TV 32 inch</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Meja & Kursi Belajar</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <svg width="20" height="20" fill="none" stroke="#10B981" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Jendela Besar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informasi Penghunian -->
+        <div class="card" style="margin-bottom: 24px;">
+            <h3 style="font-size: 20px; margin-bottom: 16px;">Informasi Penghunian</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px;">
+                <div>
+                    <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Tanggal Masuk</div>
+                    <div style="font-weight: 600; font-size: 16px;">1 Agustus 2023</div>
+                </div>
+                <div>
+                    <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Durasi Kontrak</div>
+                    <div style="font-weight: 600; font-size: 16px;">12 Bulan</div>
+                </div>
+                <div>
+                    <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Berakhir Kontrak</div>
+                    <div style="font-weight: 600; font-size: 16px;">31 Juli 2024</div>
+                </div>
+                <div>
+                    <div style="font-size: 14px; color: var(--gray-500); margin-bottom: 4px;">Sisa Kontrak</div>
+                    <div style="font-weight: 600; font-size: 16px; color: var(--warning);">6 Bulan</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fasilitas Umum -->
+        <div class="card">
+            <h3 style="font-size: 20px; margin-bottom: 16px;">Fasilitas Umum Kost</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🅿️</div>
+                    <div style="font-weight: 600;">Parkir Motor</div>
+                </div>
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🧺</div>
+                    <div style="font-weight: 600;">Laundry</div>
+                </div>
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">📹</div>
+                    <div style="font-weight: 600;">CCTV 24 Jam</div>
+                </div>
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🏪</div>
+                    <div style="font-weight: 600;">Minimarket</div>
+                </div>
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🍳</div>
+                    <div style="font-weight: 600;">Dapur Bersama</div>
+                </div>
+                <div style="padding: 16px; background-color: var(--gray-50); border-radius: 8px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🛋️</div>
+                    <div style="font-weight: 600;">Ruang Tamu</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peraturan Kost -->
+        <div class="card" style="margin-top: 24px;">
+            <h3 style="font-size: 20px; margin-bottom: 16px;">Peraturan Kost</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Jam berkunjung tamu: 08.00 - 21.00 WIB</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Dilarang membawa hewan peliharaan</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Dilarang merokok di dalam kamar</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Pembayaran sewa paling lambat tanggal 10 setiap bulan</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Jaga kebersihan dan ketenangan bersama</div>
+                </div>
+                <div style="display: flex; gap: 12px;">
+                    <div style="color: var(--primary);">•</div>
+                    <div>Listrik dan air sudah termasuk dalam harga sewa</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

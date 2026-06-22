@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Login | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Halaman Login</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">&larr; Kembali ke Index</a>
+            </div>
+        </div>
+
+        <div class="centered-container">
+            <div class="centered-box">
+                <!-- Logo -->
+                <div class="text-center mb-30">
+                    <div class="logo" style="display: inline-block;">KostKu</div>
+                    <p style="margin-top: 10px; color: #666; font-size: 14px;">Sistem Manajemen Kost</p>
+                </div>
+
+                <!-- Login Form -->
+                <div class="card">
+                    <div class="card-header text-center">
+                        Login ke Akun Anda
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input" placeholder="email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input type="password" class="form-input" placeholder="••••••••••••">
+                            </div>
+
+                            <div class="form-group">
+                                <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                                    <input type="checkbox" style="width: auto;">
+                                    <span>Ingat Saya</span>
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" onclick="goToDashboard()">
+                                    LOGIN
+                                </button>
+                            </div>
+
+                            <div class="text-center" style="font-size: 14px;">
+                                <a href="#" style="color: #333; text-decoration: underline;">Lupa Password?</a>
+                            </div>
+
+                            <div class="text-center mt-20" style="font-size: 14px; color: #666;">
+                                Belum punya akun? 
+                                <a href="#" style="color: #333; text-decoration: underline;">Daftar di sini</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="text-center mt-20" style="font-size: 12px; color: #999;">
+                    © 2024 KostKu. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goToDashboard() {
+            // Simulasi login - redirect ke dashboard
+            if (confirm('Login sebagai:\n\n1. Penghuni (OK)\n2. Pemilik Kost (Cancel)')) {
+                window.location.href = 'dashboard-penghuni.html';
+            } else {
+                window.location.href = 'dashboard-pemilik.html';
+            }
+        }
+    </script>
+</body>
+</html>

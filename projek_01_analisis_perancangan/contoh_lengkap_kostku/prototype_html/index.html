@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KostKu - Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                    <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+                </svg>
+                <h1>KostKu</h1>
+            </div>
+            
+            <h2>Selamat Datang</h2>
+            <p class="subtitle">Silakan login untuk melanjutkan</p>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="nama@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember">
+                        <span>Ingat saya</span>
+                    </label>
+                    <a href="#" class="link">Lupa Password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            
+            <div class="register-link">
+                Belum punya akun? <a href="register.html">Daftar di sini</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            
+            // Simulasi login berdasarkan email
+            if (email.includes('penghuni') || email.includes('ahmad')) {
+                window.location.href = 'dashboard-penghuni.html';
+            } else if (email.includes('pemilik') || email.includes('owner')) {
+                window.location.href = 'dashboard-pemilik.html';
+            } else {
+                alert('Login berhasil! Redirect ke dashboard...');
+                window.location.href = 'dashboard-penghuni.html';
+            }
+        });
+    </script>
+</body>
+</html>

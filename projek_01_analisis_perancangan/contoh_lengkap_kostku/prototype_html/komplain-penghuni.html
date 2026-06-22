@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komplain - KostKu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div class="header-logo">
+                <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                    <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                    <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+                </svg>
+                <span>KostKu</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <button class="notification-btn">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge"></span>
+            </button>
+            <div class="user-menu">
+                <div class="user-avatar">NS</div>
+                <span>Nanda Shofa</span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="kamar-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span>Info Kamar</span>
+                </a>
+            </li>
+            <li>
+                <a href="pembayaran-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                        <line x1="1" y1="10" x2="23" y2="10"/>
+                    </svg>
+                    <span>Pembayaran</span>
+                </a>
+            </li>
+            <li>
+                <a href="komplain-penghuni.html" class="active">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span>Komplain</span>
+                </a>
+            </li>
+            <li>
+                <a href="profile-penghuni.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1 class="page-title">Komplain</h1>
+                    <div class="breadcrumb">
+                        <span>Dashboard</span>
+                        <span>/</span>
+                        <span>Komplain</span>
+                    </div>
+                </div>
+                <button onclick="openKomplainModal()" class="btn btn-success">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"/>
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                    </svg>
+                    Ajukan Komplain Baru
+                </button>
+            </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="card" style="margin-bottom: 24px;">
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <button class="btn btn-sm btn-primary">Semua</button>
+                <button class="btn btn-sm btn-secondary">Open</button>
+                <button class="btn btn-sm btn-secondary">In Progress</button>
+                <button class="btn btn-sm btn-secondary">Resolved</button>
+                <button class="btn btn-sm btn-secondary">Closed</button>
+            </div>
+        </div>
+
+        <!-- Komplain List -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+            <!-- Komplain Card 1 - Urgent -->
+            <div class="card" style="border-left: 4px solid #DC2626;">
+                <div style="display: flex; justify-content: between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                            <span style="font-size: 14px; color: var(--gray-500);">#KMP-2024-003</span>
+                            <span class="badge badge-danger">Urgent</span>
+                            <span class="badge badge-primary">In Progress</span>
+                        </div>
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">AC Kamar Tidak Dingin</h3>
+                        <p style="color: var(--gray-500); font-size: 14px; margin-bottom: 12px;">
+                            AC di kamar 201 sudah tidak dingin sejak 2 hari yang lalu. Sudah dicoba dibersihkan filter tapi tetap tidak dingin.
+                        </p>
+                        <div style="display: flex; gap: 16px; font-size: 14px; color: var(--gray-500);">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                <span>3 Januari 2024, 14:20</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <span>Ditangani oleh: Teknisi Budi</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-secondary">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Komplain Card 2 - High -->
+            <div class="card" style="border-left: 4px solid #EF4444;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                            <span style="font-size: 14px; color: var(--gray-500);">#KMP-2024-002</span>
+                            <span class="badge badge-warning">High</span>
+                            <span class="badge badge-success">Resolved</span>
+                        </div>
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">Kamar Mandi Bocor</h3>
+                        <p style="color: var(--gray-500); font-size: 14px; margin-bottom: 12px;">
+                            Shower kamar mandi bocor dan air merembes ke lantai. Mohon segera diperbaiki.
+                        </p>
+                        <div style="display: flex; gap: 16px; font-size: 14px; color: var(--gray-500);">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                <span>1 Januari 2024, 09:15</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Diselesaikan: 2 Januari 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-success">Beri Rating</button>
+                </div>
+            </div>
+
+            <!-- Komplain Card 3 - Medium -->
+            <div class="card" style="border-left: 4px solid #F59E0B;">
+                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+                    <div style="flex: 1;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                            <span style="font-size: 14px; color: var(--gray-500);">#KMP-2024-001</span>
+                            <span class="badge badge-secondary">Medium</span>
+                            <span class="badge badge-secondary">Closed</span>
+                        </div>
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">WiFi Lambat</h3>
+                        <p style="color: var(--gray-500); font-size: 14px; margin-bottom: 12px;">
+                            Koneksi WiFi di kamar sangat lambat, terutama malam hari. Sulit untuk meeting online.
+                        </p>
+                        <div style="display: flex; gap: 16px; font-size: 14px; color: var(--gray-500);">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                                <span>28 Desember 2023, 20:30</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                <span>Rating: ⭐⭐⭐⭐⭐ (5.0)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Ajukan Komplain -->
+    <div id="komplainModal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3>Ajukan Komplain Baru</h3>
+                <button class="modal-close" onclick="closeKomplainModal()">&times;</button>
+            </div>
+            
+            <form id="komplainForm">
+                <div class="form-group">
+                    <label>Kategori Komplain *</label>
+                    <select required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="fasilitas">Fasilitas</option>
+                        <option value="kebersihan">Kebersihan</option>
+                        <option value="keamanan">Keamanan</option>
+                        <option value="lainnya">Lainnya</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Prioritas *</label>
+                    <select required>
+                        <option value="">Pilih Prioritas</option>
+                        <option value="low">Low - Tidak Mendesak</option>
+                        <option value="medium">Medium - Perlu Perhatian</option>
+                        <option value="high">High - Segera Ditangani</option>
+                        <option value="urgent">Urgent - Sangat Mendesak</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Judul Komplain *</label>
+                    <input type="text" placeholder="Contoh: AC Tidak Dingin" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Deskripsi Detail *</label>
+                    <textarea placeholder="Jelaskan masalah yang Anda alami secara detail..." required style="min-height: 120px;"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Foto (Opsional)</label>
+                    <input type="file" accept="image/*" multiple>
+                    <p style="font-size: 12px; color: var(--gray-500); margin-top: 4px;">
+                        Maksimal 3 foto, format JPG/PNG (Max 2MB per foto)
+                    </p>
+                </div>
+                
+                <div style="display: flex; gap: 12px;">
+                    <button type="button" onclick="closeKomplainModal()" class="btn btn-secondary" style="flex: 1;">Batal</button>
+                    <button type="submit" class="btn btn-success" style="flex: 1;">Submit Komplain</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openKomplainModal() {
+            document.getElementById('komplainModal').classList.add('active');
+        }
+        
+        function closeKomplainModal() {
+            document.getElementById('komplainModal').classList.remove('active');
+        }
+        
+        document.getElementById('komplainForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Komplain berhasil diajukan! Nomor tiket: #KMP-2024-004\n\nKomplain Anda akan segera ditangani oleh tim kami.');
+            closeKomplainModal();
+            setTimeout(() => {
+                location.reload();
+            }, 1000);
+        });
+        
+        document.getElementById('komplainModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeKomplainModal();
+            }
+        });
+    </script>
+</body>
+</html>

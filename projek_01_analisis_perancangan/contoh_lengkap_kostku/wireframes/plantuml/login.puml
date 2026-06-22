@@ -1,0 +1,48 @@
+@startsalt login
+{
+  {T
+    + **WIREFRAME: Halaman Login**
+  }
+  
+  {
+    {
+      .
+      .
+      {
+        <size:20><b>KostKu</b></size>
+        <i>Sistem Manajemen Kost</i>
+      }
+      .
+      .
+    }
+    
+    {
+      {
+        <b>Login ke Akun Anda</b>
+        --
+        Email Address
+        [ email@example.com                    ]
+        --
+        Password  
+        [ ••••••••••••••                       ]
+        --
+        [ ] Ingat Saya
+        --
+        [   LOGIN   ]
+        --
+        <color:blue>Lupa Password?</color>
+        --
+        Belum punya akun? <color:blue>Daftar di sini</color>
+      }
+    }
+    
+    {
+      .
+      .
+      © 2024 KostKu. All rights reserved.
+      .
+      .
+    }
+  }
+}
+@endsalt

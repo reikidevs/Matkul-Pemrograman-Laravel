@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe - Dashboard Penghuni | KostKu</title>
+    <link rel="stylesheet" href="wireframe-style.css">
+</head>
+<body>
+    <div class="wireframe-container">
+        <div class="wireframe-header">
+            <div class="wireframe-title">Wireframe: Dashboard Penghuni</div>
+            <div style="font-size: 12px; color: #666;">
+                <a href="index.html" style="color: #666;">← Kembali ke Index</a>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">KostKu</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="dashboard-penghuni.html" class="active">Dashboard</a></li>
+                    <li><a href="#">Kamar</a></li>
+                    <li><a href="pembayaran.html">Pembayaran</a></li>
+                    <li><a href="komplain.html">Komplain</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </nav>
+            <div class="user-profile">[User] Ahmad Rizki &#9662;</div>
+        </div>
+
+        <!-- Main Layout -->
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="dashboard-penghuni.html" class="active">[Home] Dashboard</a></li>
+                    <li><a href="#">[Room] Kamar Saya</a></li>
+                    <li><a href="pembayaran.html">[Payment] Pembayaran</a></li>
+                    <li><a href="komplain.html">[Ticket] Komplain</a></li>
+                    <li><a href="#">[User] Profile</a></li>
+                    <li style="margin-top: 20px; padding-top: 20px; border-top: 2px solid #ddd;">
+                        <a href="login.html">[Exit] Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content-area">
+                <!-- Welcome Section -->
+                <div class="card" style="background: #e0e0e0;">
+                    <h1 style="font-size: 24px; margin-bottom: 10px;">Selamat Datang, Ahmad Rizki!</h1>
+                    <p style="font-size: 14px;">
+                        Status: <strong>Aktif</strong> | Kamar: <strong>201</strong> | Sejak: <strong>Januari 2024</strong>
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="card-header">Quick Stats</div>
+                <div class="grid grid-4 mb-30">
+                    <div class="stat-card">
+                        <div class="stat-label">Kamar</div>
+                        <div class="stat-value">201</div>
+                        <div class="stat-detail">Lantai 2</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Status</div>
+                        <div class="stat-value">Aktif</div>
+                        <div class="stat-detail">Sejak Jan 2024</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Tagihan</div>
+                        <div class="stat-value">1</div>
+                        <div class="stat-detail">Belum Bayar</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Komplain</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-detail">Open</div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="card">
+                    <div class="card-header">Aktivitas Terbaru</div>
+                    <div class="card-body">
+                        <ul class="list">
+                            <li class="list-item">
+                                <div class="flex-between">
+                                    <div>
+                                        <strong>[Payment] Pembayaran Januari 2024</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            Rp 1.500.000 - Menunggu konfirmasi
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-warning">Pending</span>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <div class="flex-between">
+                                    <div>
+                                        <strong>[Ticket] Komplain AC Tidak Dingin</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            #KMP-001 - Diajukan 5 Jan 2024
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-info">Open</span>
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <div class="flex-between">
+                                    <div>
+                                        <strong>[Check] Pembayaran Desember 2023</strong>
+                                        <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                            Rp 1.500.000 - Lunas
+                                        </div>
+                                    </div>
+                                    <span class="badge badge-success">Lunas</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Announcements -->
+                <div class="card">
+                    <div class="card-header">Pengumuman</div>
+                    <div class="card-body">
+                        <ul class="list">
+                            <li class="list-item">
+                                <strong>[Info] Pemadaman Listrik</strong>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                    Akan ada pemadaman listrik pada tanggal 15 Januari 2024 pukul 09:00 - 12:00
+                                </div>
+                            </li>
+                            <li class="list-item">
+                                <strong>[Info] Metode Pembayaran</strong>
+                                <div style="font-size: 12px; color: #666; margin-top: 5px;">
+                                    Pembayaran dapat dilakukan via transfer bank. Upload bukti transfer di menu Pembayaran.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

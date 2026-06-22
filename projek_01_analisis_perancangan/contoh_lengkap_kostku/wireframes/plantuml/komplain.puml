@@ -1,0 +1,92 @@
+@startsalt komplain
+{
+  {T
+    + **WIREFRAME: Halaman Komplain**
+  }
+  
+  {#
+    == HEADER ==
+    {
+      [KostKu] | Dashboard | Kamar | Pembayaran | Komplain | Profile | [[User] Ahmad Rizki ▼]
+    }
+    
+    == MAIN CONTENT ==
+    {+
+      {T
+        + SIDEBAR
+        | CONTENT AREA
+      }
+      {
+        {
+          [[Home] Dashboard]
+          [[Room] Kamar Saya]
+          [[Payment] Pembayaran]
+          [<b>[Ticket] Komplain</b>]
+          [[User] Profile]
+          --
+          [[Exit] Logout]
+        }
+        |
+        {
+          {
+            <size:18><b>Komplain</b></size>
+            Dashboard > Komplain
+            |
+            [+ AJUKAN KOMPLAIN BARU]
+          }
+          --
+          {
+            Filter: [Semua ▼] | [[Search] Cari komplain...]
+          }
+          --
+          {T
+            + DAFTAR KOMPLAIN
+          }
+          {
+            {
+              <b>#KMP-001</b> | <color:red>Urgent</color>
+              <b>AC Tidak Dingin</b>
+              --
+              AC di kamar 201 tidak dingin sejak 2 hari yang lalu
+              --
+              Status: <color:blue>Open</color>
+              Dibuat: 5 Januari 2024, 10:30
+              --
+              [LIHAT DETAIL]
+            }
+          }
+          --
+          {
+            {
+              <b>#KMP-002</b> | <color:orange>Medium</color>
+              <b>Kamar Mandi Bocor</b>
+              --
+              Air kamar mandi bocor ke lantai
+              --
+              Status: <color:orange>In Progress</color>
+              Dibuat: 3 Januari 2024, 14:20
+              --
+              [LIHAT DETAIL]
+            }
+          }
+          --
+          {
+            {
+              <b>#KMP-003</b> | <color:gray>Low</color>
+              <b>Lampu Kamar Mati</b>
+              --
+              Lampu kamar perlu diganti
+              --
+              Status: <color:green>Resolved</color>
+              Dibuat: 1 Januari 2024, 09:15
+              Selesai: 2 Januari 2024, 11:00
+              --
+              [LIHAT DETAIL]
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@endsalt

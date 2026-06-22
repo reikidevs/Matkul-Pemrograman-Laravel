@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KostKu - Sistem Manajemen Kost Modern</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Landing Page Specific Styles */
+        .landing-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 100;
+        }
+
+        .landing-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .landing-nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .landing-nav a {
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .landing-nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            padding: 100px 48px 48px;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 56px;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .hero-image {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+        }
+
+        .section {
+            padding: 80px 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--gray-500);
+            margin-bottom: 64px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 32px;
+            border-radius: 16px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-desc {
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 48px;
+        }
+
+        .cta-section h2 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background-color: var(--gray-900);
+            color: white;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background-color: var(--gray-100);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-text h1 {
+                font-size: 36px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .landing-header {
+                padding: 0 24px;
+            }
+            
+            .landing-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="landing-header">
+        <div class="landing-logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                <rect width="40" height="40" rx="8" fill="#3B82F6"/>
+                <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="white"/>
+            </svg>
+            <span>KostKu</span>
+        </div>
+        <nav class="landing-nav">
+            <a href="#features">Fitur</a>
+            <a href="#benefits">Keuntungan</a>
+            <a href="#pricing">Harga</a>
+            <a href="#contact">Kontak</a>
+            <a href="index.html" class="btn btn-primary">Login</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Kelola Kost Anda dengan Lebih Mudah</h1>
+                <p>
+                    Sistem manajemen kost modern yang membantu pemilik kost mengelola properti, 
+                    pembayaran, dan penghuni dengan efisien. Semua dalam satu platform digital.
+                </p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn btn-white btn-lg">
+                        Daftar Sekarang
+                    </a>
+                    <a href="index.html" class="btn btn-secondary btn-lg">
+                        Login
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                🏠
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <h2 class="section-title">Fitur Unggulan</h2>
+        <p class="section-subtitle">Semua yang Anda butuhkan untuk mengelola kost modern</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3 class="feature-title">Pembayaran Online</h3>
+                <p class="feature-desc">
+                    Penghuni dapat melakukan pembayaran sewa secara online dengan upload bukti transfer. 
+                    Pemilik dapat konfirmasi dengan mudah.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Dashboard Analytics</h3>
+                <p class="feature-desc">
+                    Monitor occupancy rate, pendapatan bulanan, dan statistik penting lainnya 
+                    dalam satu dashboard yang informatif.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3 class="feature-title">Notifikasi Otomatis</h3>
+                <p class="feature-desc">
+                    Sistem reminder otomatis untuk jatuh tempo pembayaran, komplain baru, 
+                    dan update penting lainnya.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Sistem Komplain</h3>
+                <p class="feature-desc">
+                    Platform terstruktur untuk penghuni mengajukan komplain dan pemilik 
+                    dapat tracking penanganan dengan mudah.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Responsive Design</h3>
+                <p class="feature-desc">
+                    Akses dari mana saja, kapan saja. Tampilan optimal di desktop, 
+                    tablet, dan smartphone.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Keamanan Terjamin</h3>
+                <p class="feature-desc">
+                    Data Anda aman dengan enkripsi tingkat tinggi dan backup otomatis 
+                    setiap hari.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section" id="benefits" style="background-color: var(--gray-50);">
+        <h2 class="section-title">Keuntungan Menggunakan KostKu</h2>
+        <p class="section-subtitle">Digitalisasi pengelolaan kost untuk efisiensi maksimal</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; max-width: 900px; margin: 0 auto;">
+            <div style="display: flex; gap: 16px;">
+                <div style="flex-shrink: 0;">
+                    <svg width="32" height="32" fill="none" stroke="#10B981" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 20px; margin-bottom: 8px;">Hemat Waktu 80%</h4>
+                    <p style="color: var(--gray-500);">Otomatisasi administrasi mengurangi waktu pengelolaan dari 10 jam menjadi 2 jam per minggu.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 16px;">
+                <div style="flex-shrink: 0;">
+                    <svg width="32" height="32" fill="none" stroke="#10B981" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 20px; margin-bottom: 8px;">Akurasi 99%</h4>
+                    <p style="color: var(--gray-500);">Eliminasi human error dalam pencatatan pembayaran dan laporan keuangan.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 16px;">
+                <div style="flex-shrink: 0;">
+                    <svg width="32" height="32" fill="none" stroke="#10B981" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 20px; margin-bottom: 8px;">Transparansi Penuh</h4>
+                    <p style="color: var(--gray-500);">Penghuni dapat melihat riwayat pembayaran dan status kamar kapan saja.</p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 16px;">
+                <div style="flex-shrink: 0;">
+                    <svg width="32" height="32" fill="none" stroke="#10B981" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                </div>
+                <div>
+                    <h4 style="font-size: 20px; margin-bottom: 8px;">Kepuasan Meningkat</h4>
+                    <p style="color: var(--gray-500);">Penanganan komplain yang cepat meningkatkan kepuasan penghuni hingga 95%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <h2 class="section-title">Paket Harga</h2>
+        <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan Anda</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1000px; margin: 0 auto;">
+            <div class="card" style="text-align: center; padding: 40px;">
+                <h3 style="font-size: 24px; margin-bottom: 16px;">Starter</h3>
+                <div style="font-size: 48px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Gratis</div>
+                <p style="color: var(--gray-500); margin-bottom: 32px;">Untuk kost kecil</p>
+                <ul style="text-align: left; margin-bottom: 32px; list-style: none;">
+                    <li style="margin-bottom: 12px;">✓ Maksimal 10 kamar</li>
+                    <li style="margin-bottom: 12px;">✓ Fitur dasar</li>
+                    <li style="margin-bottom: 12px;">✓ Support email</li>
+                    <li style="margin-bottom: 12px; color: var(--gray-400);">✗ Analytics</li>
+                </ul>
+                <a href="register.html" class="btn btn-secondary btn-block">Mulai Gratis</a>
+            </div>
+
+            <div class="card" style="text-align: center; padding: 40px; border: 2px solid var(--primary);">
+                <div style="background-color: var(--primary); color: white; padding: 4px 12px; border-radius: 12px; display: inline-block; margin-bottom: 16px; font-size: 12px; font-weight: 600;">POPULER</div>
+                <h3 style="font-size: 24px; margin-bottom: 16px;">Professional</h3>
+                <div style="font-size: 48px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">299K</div>
+                <p style="color: var(--gray-500); margin-bottom: 32px;">per bulan</p>
+                <ul style="text-align: left; margin-bottom: 32px; list-style: none;">
+                    <li style="margin-bottom: 12px;">✓ Maksimal 50 kamar</li>
+                    <li style="margin-bottom: 12px;">✓ Semua fitur</li>
+                    <li style="margin-bottom: 12px;">✓ Analytics lengkap</li>
+                    <li style="margin-bottom: 12px;">✓ Priority support</li>
+                </ul>
+                <a href="register.html" class="btn btn-primary btn-block">Pilih Paket</a>
+            </div>
+
+            <div class="card" style="text-align: center; padding: 40px;">
+                <h3 style="font-size: 24px; margin-bottom: 16px;">Enterprise</h3>
+                <div style="font-size: 48px; font-weight: 700; color: var(--primary); margin-bottom: 8px;">Custom</div>
+                <p style="color: var(--gray-500); margin-bottom: 32px;">Hubungi kami</p>
+                <ul style="text-align: left; margin-bottom: 32px; list-style: none;">
+                    <li style="margin-bottom: 12px;">✓ Unlimited kamar</li>
+                    <li style="margin-bottom: 12px;">✓ Multiple properti</li>
+                    <li style="margin-bottom: 12px;">✓ Custom features</li>
+                    <li style="margin-bottom: 12px;">✓ Dedicated support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary btn-block">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Siap Untuk Memulai?</h2>
+        <p>Bergabunglah dengan ratusan pemilik kost yang sudah merasakan kemudahan KostKu</p>
+        <div style="display: flex; gap: 16px; justify-content: center;">
+            <a href="register.html" class="btn btn-white btn-lg">Daftar Gratis</a>
+            <a href="index.html" class="btn btn-secondary btn-lg" style="background-color: rgba(255,255,255,0.2); color: white; border: 2px solid white;">Login</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; margin-bottom: 48px; text-align: left;">
+                <div>
+                    <div class="landing-logo" style="color: white; margin-bottom: 16px;">
+                        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+                            <rect width="40" height="40" rx="8" fill="white"/>
+                            <path d="M20 10L10 18V32H16V24H24V32H30V18L20 10Z" fill="#3B82F6"/>
+                        </svg>
+                        <span>KostKu</span>
+                    </div>
+                    <p style="color: var(--gray-400); font-size: 14px;">
+                        Sistem manajemen kost modern untuk efisiensi maksimal.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 16px;">Produk</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+                        <a href="#features" style="color: var(--gray-400);">Fitur</a>
+                        <a href="#pricing" style="color: var(--gray-400);">Harga</a>
+                        <a href="#" style="color: var(--gray-400);">Demo</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 16px;">Perusahaan</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+                        <a href="#" style="color: var(--gray-400);">Tentang Kami</a>
+                        <a href="#" style="color: var(--gray-400);">Blog</a>
+                        <a href="#" style="color: var(--gray-400);">Karir</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 16px;">Kontak</h4>
+                    <div style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--gray-400);">
+                        <div>📧 info@kostku.com</div>
+                        <div>📱 +62 812-3456-7890</div>
+                        <div>📍 Semarang, Indonesia</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid var(--gray-700); padding-top: 24px; font-size: 14px; color: var(--gray-400);">
+                <p>&copy; 2024 KostKu. All rights reserved. | <a href="#" style="color: var(--gray-400);">Privacy Policy</a> | <a href="#" style="color: var(--gray-400);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.landing-header');
+            if (window.scrollY > 0) {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
