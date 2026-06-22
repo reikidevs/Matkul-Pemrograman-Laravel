@@ -11,6 +11,8 @@ Tutorial Laravel step-by-step untuk Mata Kuliah Pemrograman Berbasis Kerangka Ke
 > 🆕 **Pemula? Baca [TUTORIAL.md](TUTORIAL.md) lebih dulu!**
 > Panduan lengkap step-by-step dari nol (install tools → CRUD database), ditulis khusus untuk pemula.
 
+> 🟢 **Pakai Laragon atau XAMPP?** Baca **[PANDUAN_LARAGON_XAMPP.md](PANDUAN_LARAGON_XAMPP.md)** — panduan setup super detail khusus pengguna Laragon & XAMPP (cocok untuk pemula total).
+
 ---
 
 ## 📚 Daftar Praktikum
