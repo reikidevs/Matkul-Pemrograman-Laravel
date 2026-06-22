@@ -10,14 +10,14 @@
 
 ## 🧭 Daftar Isi
 
-| Bagian | Isi |
-| ------ | --- |
-| [Bagian A](#bagian-a--memahami-dulu-sebelum-mulai) | Memahami dulu (konsep dasar) |
+| Bagian                                                  | Isi                                     |
+| ------------------------------------------------------- | --------------------------------------- |
+| [Bagian A](#bagian-a--memahami-dulu-sebelum-mulai)      | Memahami dulu (konsep dasar)            |
 | [Bagian B](#bagian-b--cara-1-pakai-laragon-rekomendasi) | **Cara 1: Pakai Laragon** (Rekomendasi) |
-| [Bagian C](#bagian-c--cara-2-pakai-xampp) | **Cara 2: Pakai XAMPP** |
-| [Bagian D](#bagian-d--menjalankan-projek-kostku) | Menjalankan Projek Akhir (KostKu) |
-| [Bagian E](#bagian-e--troubleshooting-lengkap) | Troubleshooting (kumpulan error) |
-| [Bagian F](#bagian-f--glosarium-istilah) | Glosarium istilah |
+| [Bagian C](#bagian-c--cara-2-pakai-xampp)               | **Cara 2: Pakai XAMPP**                 |
+| [Bagian D](#bagian-d--menjalankan-projek-kostku)        | Menjalankan Projek Akhir (KostKu)       |
+| [Bagian E](#bagian-e--troubleshooting-lengkap)          | Troubleshooting (kumpulan error)        |
+| [Bagian F](#bagian-f--glosarium-istilah)                | Glosarium istilah                       |
 
 ---
 
@@ -27,32 +27,33 @@
 
 Keduanya adalah **paket software** yang berisi banyak alat sekaligus, supaya kamu tidak perlu install PHP, MySQL, dan Apache satu per satu secara manual.
 
-| | **Laragon** | **XAMPP** |
-| --- | --- | --- |
-| Berisi | PHP, MySQL, Apache/Nginx, Composer, Node.js | PHP, MySQL (MariaDB), Apache |
-| Ukuran | Ringan | Lebih berat |
-| Composer | ✅ Sudah termasuk | ❌ Install manual |
-| Cocok untuk | Pemula & developer modern | Pemula yang sudah biasa XAMPP |
-| Rekomendasi | ⭐ **Sangat disarankan** | Boleh, kalau sudah punya |
+|             | **Laragon**                                 | **XAMPP**                     |
+| ----------- | ------------------------------------------- | ----------------------------- |
+| Berisi      | PHP, MySQL, Apache/Nginx, Composer, Node.js | PHP, MySQL (MariaDB), Apache  |
+| Ukuran      | Ringan                                      | Lebih berat                   |
+| Composer    | ✅ Sudah termasuk                           | ❌ Install manual             |
+| Cocok untuk | Pemula & developer modern                   | Pemula yang sudah biasa XAMPP |
+| Rekomendasi | ⭐ **Sangat disarankan**                    | Boleh, kalau sudah punya      |
 
 > 💡 **Kesimpulan:** Kalau kamu mulai dari nol, **pakai Laragon** (Bagian B). Kalau di laptopmu sudah ada XAMPP dan tidak mau install lagi, pakai XAMPP (Bagian C).
 
 ### A.2 Istilah Penting yang Wajib Dimengerti
 
-| Istilah | Arti Sederhana |
-| ------- | -------------- |
-| **Terminal / CMD** | Tempat mengetik perintah (kotak hitam) |
-| **PHP** | Bahasa pemrograman yang dipakai Laravel |
-| **Composer** | Pengunduh library PHP (seperti "Play Store" untuk kode PHP) |
-| **MySQL** | Tempat menyimpan data (database) |
-| **`php artisan`** | Perintah ajaib Laravel untuk banyak hal |
-| **`.env`** | File pengaturan rahasia (koneksi database, dll) |
-| **migration** | Cetak biru / blueprint tabel database |
-| **seeder** | Pengisi data contoh ke database |
+| Istilah            | Arti Sederhana                                              |
+| ------------------ | ----------------------------------------------------------- |
+| **Terminal / CMD** | Tempat mengetik perintah (kotak hitam)                      |
+| **PHP**            | Bahasa pemrograman yang dipakai Laravel                     |
+| **Composer**       | Pengunduh library PHP (seperti "Play Store" untuk kode PHP) |
+| **MySQL**          | Tempat menyimpan data (database)                            |
+| **`php artisan`**  | Perintah ajaib Laravel untuk banyak hal                     |
+| **`.env`**         | File pengaturan rahasia (koneksi database, dll)             |
+| **migration**      | Cetak biru / blueprint tabel database                       |
+| **seeder**         | Pengisi data contoh ke database                             |
 
 ### A.3 Yang Akan Kita Capai
 
 Di akhir panduan ini, kamu bisa:
+
 1. ✅ Membuka project Laravel praktikum (01–10)
 2. ✅ Menyambungkan ke database MySQL
 3. ✅ Menjalankan di browser → `http://localhost:8000`
@@ -86,16 +87,19 @@ Di akhir panduan ini, kamu bisa:
 ```bash
 php --version
 ```
+
 Harus muncul, contoh: `PHP 8.2.x`
 
 ```bash
 composer --version
 ```
+
 Harus muncul versi Composer.
 
 ```bash
 mysql --version
 ```
+
 Harus muncul versi MySQL/MariaDB.
 
 > ❗ Kalau salah satu error `command not found`, **tutup terminal biasa** dan pakai **Terminal bawaan Laragon** (langkah B.3 nomor 1). Terminal Laragon sudah disetel otomatis.
@@ -103,6 +107,7 @@ Harus muncul versi MySQL/MariaDB.
 ### B.4 Letakkan Folder Project
 
 Project praktikum ini ada di laptopmu, misalnya di:
+
 ```
 E:\Joki Tugas\Program\Matkul Pemrograman Laravel
 ```
@@ -154,7 +159,7 @@ Perintah ini mengisi `APP_KEY` di file `.env`. Tanpa ini, Laravel akan error "No
 2. Saat diminta login, biasanya:
    - **Host:** `127.0.0.1` atau `localhost`
    - **User:** `root`
-   - **Password:** *(kosongkan)*
+   - **Password:** _(kosongkan)_
    - Klik **Open / Connect**.
 3. Klik kanan pada area daftar database (kiri) → **Create new → Database**.
 4. Beri nama database: **`akademik`** (untuk praktikum 05–10).
@@ -197,6 +202,7 @@ php artisan serve
 ```
 
 Akan muncul:
+
 ```
 INFO  Server running on [http://127.0.0.1:8000]
 ```
@@ -204,6 +210,7 @@ INFO  Server running on [http://127.0.0.1:8000]
 ### B.13 Buka di Browser 🎉
 
 Buka browser, ketik:
+
 ```
 http://localhost:8000
 ```
@@ -242,6 +249,7 @@ Secara default, perintah `php` belum dikenali di CMD biasa. Cara termudah:
 Setiap kali buka CMD, masuk dulu ke folder php, atau tambahkan ke PATH (Opsi B).
 
 **Opsi B — Tambahkan PHP ke PATH (sekali saja, permanen):**
+
 1. Tekan tombol **Windows**, ketik **"environment variables"** → buka **"Edit the system environment variables"**.
 2. Klik tombol **Environment Variables...**.
 3. Di bagian **System variables**, cari dan pilih **Path** → klik **Edit**.
@@ -261,6 +269,7 @@ Setiap kali buka CMD, masuk dulu ke folder php, atau tambahkan ke PATH (Opsi B).
 ```bash
 composer --version
 ```
+
 Harus muncul versi Composer.
 
 ### C.5 Masuk ke Folder Praktikum
@@ -325,6 +334,7 @@ php artisan serve
 ```
 
 Buka browser:
+
 ```
 http://localhost:8000
 ```
@@ -422,12 +432,14 @@ Kumpulan error yang **paling sering** dialami pemula, beserta solusinya.
 ### E.1 `'php' is not recognized` / `command not found`
 
 **Penyebab:** PHP belum dikenali oleh terminal.
+
 - **Laragon:** pakai **Terminal bawaan Laragon**, bukan CMD biasa.
 - **XAMPP:** tambahkan `C:\xampp\php` ke PATH (lihat langkah C.3), lalu **tutup dan buka ulang** CMD.
 
 ### E.2 `No application encryption key has been specified`
 
 **Solusi:**
+
 ```bash
 php artisan key:generate
 ```
@@ -446,6 +458,7 @@ php artisan key:generate
 
 **Penyebab:** Password di `.env` salah.
 **Solusi:** Untuk Laragon & XAMPP default, kosongkan password:
+
 ```env
 DB_USERNAME=root
 DB_PASSWORD=
@@ -454,6 +467,7 @@ DB_PASSWORD=
 ### E.6 `Class "..." not found`
 
 **Solusi:** Muat ulang autoload:
+
 ```bash
 composer dump-autoload
 ```
@@ -461,6 +475,7 @@ composer dump-autoload
 ### E.7 Halaman error / tampilan berantakan setelah ubah kode
 
 **Solusi:** Bersihkan cache:
+
 ```bash
 php artisan cache:clear
 php artisan config:clear
@@ -471,15 +486,18 @@ php artisan route:clear
 ### E.8 Port 8000 sudah dipakai
 
 **Solusi:** Jalankan di port lain:
+
 ```bash
 php artisan serve --port=8001
 ```
+
 Lalu buka `http://localhost:8001`.
 
 ### E.9 Gambar / bukti transfer tidak muncul (KostKu)
 
 **Penyebab:** Belum membuat storage link.
 **Solusi:**
+
 ```bash
 php artisan storage:link
 ```
@@ -488,6 +506,7 @@ php artisan storage:link
 
 **Penyebab:** Dependencies belum di-install.
 **Solusi:**
+
 ```bash
 composer install
 ```
@@ -501,20 +520,20 @@ Yang penting **MySQL menyala**. Laravel dijalankan dengan `php artisan serve`.
 
 ## Bagian F — Glosarium Istilah
 
-| Istilah | Penjelasan |
-| ------- | ---------- |
-| **Framework** | Kerangka kerja siap pakai untuk membangun aplikasi lebih cepat |
-| **Dependency** | Library/paket yang dibutuhkan project agar berjalan |
-| **`vendor/`** | Folder berisi semua dependency (dibuat oleh `composer install`) |
-| **`.env`** | File pengaturan rahasia (database, key, dll) |
-| **`APP_KEY`** | Kunci enkripsi aplikasi (dibuat oleh `php artisan key:generate`) |
-| **Migration** | Cetak biru struktur tabel database |
-| **Seeder** | Pengisi data contoh ke database |
-| **`migrate:fresh --seed`** | Hapus semua tabel, buat ulang, lalu isi data contoh |
-| **`storage:link`** | Membuat jalan pintas agar file upload bisa diakses publik |
-| **`php artisan serve`** | Menjalankan server pengembangan Laravel |
-| **localhost** | Komputer kamu sendiri (server lokal) |
-| **Port** | "Pintu" jaringan; Laravel default memakai port 8000 |
+| Istilah                    | Penjelasan                                                       |
+| -------------------------- | ---------------------------------------------------------------- |
+| **Framework**              | Kerangka kerja siap pakai untuk membangun aplikasi lebih cepat   |
+| **Dependency**             | Library/paket yang dibutuhkan project agar berjalan              |
+| **`vendor/`**              | Folder berisi semua dependency (dibuat oleh `composer install`)  |
+| **`.env`**                 | File pengaturan rahasia (database, key, dll)                     |
+| **`APP_KEY`**              | Kunci enkripsi aplikasi (dibuat oleh `php artisan key:generate`) |
+| **Migration**              | Cetak biru struktur tabel database                               |
+| **Seeder**                 | Pengisi data contoh ke database                                  |
+| **`migrate:fresh --seed`** | Hapus semua tabel, buat ulang, lalu isi data contoh              |
+| **`storage:link`**         | Membuat jalan pintas agar file upload bisa diakses publik        |
+| **`php artisan serve`**    | Menjalankan server pengembangan Laravel                          |
+| **localhost**              | Komputer kamu sendiri (server lokal)                             |
+| **Port**                   | "Pintu" jaringan; Laravel default memakai port 8000              |
 
 ---
 
@@ -547,6 +566,5 @@ php artisan serve
 ---
 
 **Selamat belajar! 🚀** Kalau kamu sudah berhasil sampai sini, kamu sudah menguasai dasar menjalankan Laravel di Laragon & XAMPP.
-
 
 ---
